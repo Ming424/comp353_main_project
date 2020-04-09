@@ -1,77 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta charset="UTF-8"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <h1>TEST UNIT</h1>
-    <p>http://localhost/comp353_main_project/api/post/read.php</p>
+    <h1>TEST UNIT</h1> 
     <div class="container">
-        <div class="table-responsive">
-            <table class="table " id="employee_table" border=3>
-                 
-            </table>
+        <div id="table_1">
+            <button onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read.php', '#'+'table_1')">Click me</button>
+            <script> console.log(document.this.parentNode.nodeName);</script>
         </div>
     </div>
-    <script>
-        // Create a request variable and assign a new XMLHttpRequest object to it.
-        var request = new XMLHttpRequest()
+    <script>  
+        function call_api(mode, url, dst){
+            
+            var request = new XMLHttpRequest() 
+            request.open(mode, url, true) 
+            request.onload = function() { 
+                var data = JSON.parse(this.response)
+                create_table(dst,data)
+            } 
+            request.send()
+        }
 
-        // Open a new connection, using the GET request on the URL endpoint
-        request.open('GET', 'http://localhost/comp353_main_project/api/post/read.php', true)
 
-        request.onload = function() {
-            // Begin accessing JSON data here
-            var data = JSON.parse(this.response)
-            var table = '';
-            console.log("DATA")
+        function create_table(dst, data){
+            var table = '<table class="table " border=3>';
+            console.log("JSON receive:")
             console.log(data) 
             // table head
             table+='<tr>'; 
-            for(el in data[0]){ 
-                table += '<th>' + el + '</th>';
-            }
-            table+='</tr>';
-
+            for(el in data[0]) table += '<th>' + el + '</th>'; 
+            table+='</tr>'; 
             // table data
-            for(i = 0; i < data.length; i++){
-                console.log(data[i])
+            for(i = 0; i < data.length; i++){ 
                 table+='<tr>'
-                    for (var key in data[i]) {
-                        var value = data[i][key];
-                        console.log(key + ", " + value);
-                        table+='<td>'+value+'</td>'
-                    }
-                // for(el in data[i]){
-                //     console.log(el)
-                //     table+='<td>'+el.data+'</td>'
-                // }
+                for (var key in data[i])  table+='<td>'+data[i][key]+'</td>' 
                 table+='</tr>'
-               
-            }
-             
-
-
-            console.log(table); 
-
-
-
-
-
-            $("#employee_table").append(table);
-            // if (request.status >= 200 && request.status < 400) {
-            //     data.forEach(movie => {
-            //     console.log(movie.title)
-            //     })
-            // } else {
-            //     console.log('error')
-            // }
+            } 
+            table+='</table>'
+            $(dst).append(table); 
         }
-
-        request.send()
         </script>
 </body>
 </html>
