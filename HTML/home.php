@@ -7,7 +7,7 @@
 </head>
 <body>
 
-	<h1>Welcome to online dental clinics</h1>
+	<h1>Welcome to online dental clinics a</h1>
 
 	<!-- following field set have tuples display all the time 
 		  	-dentist 
