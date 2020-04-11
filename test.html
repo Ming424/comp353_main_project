@@ -105,6 +105,26 @@
             <button onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_5.php', 'table_5')">Click me</button> 
         </div>
 
+        <div id="table_6"> 
+            <h1>read_6</h1> 
+            <p>f. Get details of all the treatments made during a given appointment.  </p>
+            <h4>See all appointement:</h4>
+            <div id="table_6_appointment"> 
+                <h1>select * from appointment</h1> 
+                <button onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_6_appointment')">See appointment</button> 
+            </div> 
+            <label>Appointement ID: <input type="text" id="ipt_table_6_1" value="2"></label><br><br> 
+            <button id="btn_table_6">Click me</button> 
+            <script>
+                document.getElementById("btn_table_6").onclick = 
+                function() {
+                    var url = "http://localhost/comp353_main_project/api/post/read_6.php?"
+                        +"Aid="+document.getElementById("ipt_table_6_1").value
+                        ; 
+                    call_api('GET',url, 'table_6');
+                } 
+            </script>
+        </div>
 
 
 
