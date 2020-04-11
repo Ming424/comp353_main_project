@@ -1,10 +1,10 @@
 <?php 
   class TestDatabase {
     // DB Params
-    private $host = 'localhost';
-    private $db_name = 'myblog';
-    private $username = 'root';
-    private $password = '';
+    private $host = 'xvc353.encs.concordia.ca';
+    private $db_name = 'xvc353_4';
+    private $username = 'xvc353_4';
+    private $password = 'Comp3534';
     private $conn;
 
     // DB Connect

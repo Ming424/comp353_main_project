@@ -11,15 +11,12 @@
 
         <div id="table_appointment"> 
             <h1>select * from appointment</h1> 
-            <button onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')">Click me</button> 
+            <button onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_appointment.php', 'table_appointment')">Click me</button> 
         </div> 
-
-
-
 
         <div id="table_test"> 
             <h1>TEST UNIT</h1> 
-            <button onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read.php', 'table_test')">Click me</button> 
+            <button onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read.php', 'table_test')">Click me</button> 
         </div> 
         <div id="table_test_2"> 
             <h1>TEST UNIT 2</h1> 
@@ -125,14 +122,7 @@
                 } 
             </script>
         </div>
-
-
-
-
-
     </div>
-
-
 
     <script>  
         function call_api(mode, url, dst){
