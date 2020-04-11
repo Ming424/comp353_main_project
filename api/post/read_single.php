@@ -2,33 +2,25 @@
  
     //Header
     header('Access-Control-Allow-Origin: *');
-    header('Content-Type: applicaion/json');
-
-    include_once '../../config/Database.php';
-    include_once '../../models/Post.php';  
+    header('Content-Type: applicaion/json'); 
+    include_once '../../config/TestDatabase.php';
+    include_once '../../models/TestPost.php';  
 
 
     // Instantiate DB & connect
-    $database = new Database();
+    $database = new TestDatabase();
     $db = $database->connect();
 
     // Instantiate blog post object
-    $post = new POST($db); 
+    $post = new TestPost($db); 
 
-
-    // Blog post query
-    $result = $post->read();
-    // Get row count
-    $num = $result->rowCount();
 
     // Get POST param if existed
-    // $post->id = isset($_GET['id']) ? $_GET['id'] : die(); 
-    $post->author = isset($_GET['author']) ? $_GET['author'] : die();
+    $post->id = isset($_GET['id']) ? $_GET['id'] : die(); 
+    // $post->author = isset($_GET['author']) ? $_GET['author'] : die();
 
     // Call method
     $post->read_single();
- 
-
 
     $post_arr = array( 
         // the ID

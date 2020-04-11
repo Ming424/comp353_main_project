@@ -21,7 +21,7 @@ from appointment
 where Sin = "given sin";
 
 e)
-select Sin, count(*)
+select Sin, count(*) as count
 from appointment
 where miss = "yes"
 group by Sin

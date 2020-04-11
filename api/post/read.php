@@ -3,26 +3,21 @@
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
 
-  include_once '../../config/Database.php';
-  include_once '../../models/Post.php';
-
-  // Instantiate DB & connect
-  $database = new Database();
+  include_once '../../config/TestDatabase.php';
+  include_once '../../models/TestPost.php';
+ 
+  $database = new TestDatabase();
   $db = $database->connect();
-
-  // Instantiate blog post object
-  $post = new Post($db);
-
-  // Blog post query
-  $result = $post->read();
-  // Get row count
+ 
+  $post = new TestPost($db);
+ 
+  $result = $post->read(); 
   $num = $result->rowCount();
+ 
+  if($num > 0) { 
+    $posts_arr = array(); 
+    $posts_num = array();
 
-  // Check if any posts
-  if($num > 0) {
-    // Post array
-    $posts_arr = array();
-    // $posts_arr['data'] = array();
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
       extract($row);
@@ -35,18 +30,17 @@
         'category_id' => $category_id,
         'category_name' => $category_name
       );
-
-      // Push to "data"
-      array_push($posts_arr, $post_item);
-      // array_push($posts_arr['data'], $post_item);
+ 
+      array_push($posts_arr, $post_item); 
     }
 
-    // Turn to JSON & output
+    array_push($posts_arr, $num);
+    
     echo json_encode($posts_arr);
 
   } else {
     // No Posts
-    echo json_encode(
-      array('message' => 'No Posts Found')
-    );
-  }
+    // echo json_encode(
+    //   array('wdf' => 'No Posts Found')
+    // );
+  } 

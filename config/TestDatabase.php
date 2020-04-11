@@ -1,8 +1,8 @@
 <?php 
-  class Database {
+  class TestDatabase {
     // DB Params
     private $host = 'localhost';
-    private $db_name = 'comp353';
+    private $db_name = 'myblog';
     private $username = 'root';
     private $password = '';
     private $conn;

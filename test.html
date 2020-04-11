@@ -6,42 +6,148 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>TEST UNIT</h1> 
+    
     <div class="container">
+        <div id="table_test"> 
+            <h1>TEST UNIT</h1> 
+            <button onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read.php', 'table_test')">Click me</button> 
+        </div> 
+        <div id="table_test_2"> 
+            <h1>TEST UNIT 2</h1> 
+            <input type="text" id="ipt_test_2" value="3"><br><br>
+            <button id="btn_test_2">Click me</button> 
+            <script>
+                document.getElementById("btn_test_2").onclick = function() {f_test_2()};
+                function f_test_2() {
+                    var url = "http://localhost/comp353_main_project/api/post/read_single.php?id="+document.getElementById("ipt_test_2").value;
+                    call_api('GET',url, 'table_test_2');
+                } 
+            </script>
+        </div> 
+
+
+
+
+
         <div id="table_1">
-            <button onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read.php', '#'+'table_1')">Click me</button>
-            <script> console.log(document.this.parentNode.nodeName);</script>
+            <h1>read_1</h1> 
+            <button onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_1.php', 'table_1')">Click me</button> 
+        </div>
+
+
+
+
+
+
+
+
+        <div id="table_2"> 
+            <h1>read_2</h1> 
+            <input type="text" id="ipt_table_2_1" value="1"><br><br>
+            <input type="text" id="ipt_table_2_2" value="2020-01-03"><br><br>
+            <input type="text" id="ipt_table_2_3" value="2020-01-01"><br><br>
+            <button id="btn_table_2">Click me</button> 
+            <script>
+                document.getElementById("btn_table_2").onclick = function() {f_table_2()};
+                function f_table_2() {
+                    var url = "http://localhost/comp353_main_project/api/post/read_2.php?"
+                    +"Did="+document.getElementById("ipt_table_2_1").value
+                    +"&d1="+document.getElementById("ipt_table_2_2").value
+                    +"&d2="+document.getElementById("ipt_table_2_3").value
+                    ;
+                    // var url = "http://localhost/comp353_main_project/api/post/read_2.php?Did=3";
+                    call_api('GET',url, 'table_2');
+                } 
+            </script>
         </div>
     </div>
+
+
+
     <script>  
         function call_api(mode, url, dst){
+            console.log("========================================================");
+            console.log("URL: " + url);
+            var elementExistID = 'el#'+dst;
+            if (document.contains(document.getElementById(elementExistID))) {
+                console.log(elementExistID + " does existed, refreshing...")
+                document.getElementById(elementExistID).remove();
+            }  
+
+            
             
             var request = new XMLHttpRequest() 
             request.open(mode, url, true) 
-            request.onload = function() { 
-                var data = JSON.parse(this.response)
-                create_table(dst,data)
+            request.onload = function() {  
+                var data = JSON.parse(this.response)  
+
+
+
+                console.log(data.length)
+                if(!data.length && data.error){   // data is empty
+                    console.log("EMPTY")
+                    var error_message = '<p id=\'el#' + dst + '\'>Table is empty</p>'
+                    $('#'+dst).append(error_message);  
+                } else {
+                    create_table('#'+dst, data)
+                }
+                
             } 
             request.send()
         }
 
 
         function create_table(dst, data){
-            var table = '<table class="table " border=3>';
             console.log("JSON receive:")
             console.log(data) 
-            // table head
-            table+='<tr>'; 
-            for(el in data[0]) table += '<th>' + el + '</th>'; 
-            table+='</tr>'; 
-            // table data
-            for(i = 0; i < data.length; i++){ 
-                table+='<tr>'
-                for (var key in data[i])  table+='<td>'+data[i][key]+'</td>' 
-                table+='</tr>'
-            } 
-            table+='</table>'
-            $(dst).append(table); 
+            // console.log(data.length)
+
+            // !data.length: DATA HAS ONLY ONE LINE
+            if(!data.length){
+                console.log("SINGLE LINE")
+                console.log("CREATING TABLE...") 
+                var table = '<table border=3 id=\'el' + dst + '\'>' ; 
+                // table head
+                table+='<tr>'; 
+                var data_length = 0;
+                for(el in data) { 
+                    data_length++;
+                    table += '<th>' + el + '</th>'; 
+                }
+                table+='</tr>'; 
+                // table data
+                for(i = 0; i <  1; i++){ 
+                    table+='<tr>'
+                    for (var key in data)  table+='<td>'+data[key]+'</td>' 
+                    table+='</tr>'
+                } 
+                table+='</table>'
+                console.log(table);
+                $(dst).append(table); 
+                
+            // data.length: DATA HAS MULTIPLE LINE
+            } else {
+                console.log("CREATING TABLE...")
+                console.log(data.length)
+                var table = '<table border=3 id=\'el' + dst + '\'>' ; 
+                // table head
+                table+='<tr>'; 
+                    
+                for(el in data[0]) { 
+                    table += '<th>' + el + '</th>'; 
+                }
+                table+='</tr>'; 
+                // table data
+                for(i = 0; i < data.length; i++){ 
+                    table+='<tr>'
+                    for (var key in data[i])  table+='<td>'+data[i][key]+'</td>' 
+                    table+='</tr>'
+                } 
+                table+='</table>'
+                console.log(table);
+                $(dst).append(table); 
+            }
+            
         }
         </script>
 </body>
