@@ -8,6 +8,15 @@
 <body>
     
     <div class="container">
+
+        <div id="table_appointment"> 
+            <h1>select * from appointment</h1> 
+            <button onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')">Click me</button> 
+        </div> 
+
+
+
+
         <div id="table_test"> 
             <h1>TEST UNIT</h1> 
             <button onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read.php', 'table_test')">Click me</button> 
@@ -60,6 +69,30 @@
                 } 
             </script>
         </div>
+
+        <div id="table_3"> 
+            <h1>read_3</h1> 
+            <input type="text" id="ipt_table_3_1" value="clinic_1"><br><br>
+            <input type="text" id="ipt_table_3_2" value="2020-01-01"><br><br> 
+            <button id="btn_table_3">Click me</button> 
+            <script>
+                document.getElementById("btn_table_3").onclick = function() {f_table_3()};
+                function f_table_3() {
+                    var url = "http://localhost/comp353_main_project/api/post/read_3.php?"
+                    +"clinic="+document.getElementById("ipt_table_3_1").value
+                    +"&date="+document.getElementById("ipt_table_3_2").value 
+                    ;
+                    // var url = "http://localhost/comp353_main_project/api/post/read_2.php?Did=3";
+                    call_api('GET',url, 'table_3');
+                } 
+            </script>
+        </div>
+
+
+
+
+
+
     </div>
 
 

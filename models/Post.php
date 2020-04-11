@@ -19,6 +19,8 @@
         public $Tname;
         public $fee; 
 
+        public $BelongId;
+
         // Constructor with DB
         public function __construct($db){
             $this->conn = $db;
@@ -70,24 +72,33 @@
 
             // $result = $stmt->fetch(PDO::FETCH_ASSOC);
             
-            $output = $query;
-            if (is_array($output))
-                $output = implode(',', $output);
-            echo "\n================PHP===============\n";
-            echo "PHP => " . $output  . "\n";
-            echo "^^^^^^^^^^^^^^^^PHP^^^^^^^^^^^^^^^\n\n";
+            // $output = $query;
+            // if (is_array($output))
+            //     $output = implode(',', $output);
+            // echo "\n================PHP===============\n";
+            // echo "PHP => " . $output  . "\n";
+            // echo "^^^^^^^^^^^^^^^^PHP^^^^^^^^^^^^^^^\n\n";
 
             return $stmt;
         }
 
-        public function read_3(){
-            $query = 'select *
-            from appointment, belongs
-            where appointment.Did = belongs.Did AND 
-                    appointment.data = "given date" AND 
-                    belongs.Cname = "given clinic name"';
+        public function read_3($clinic,$date){
+            $query = 
+            'SELECT * from appointment, belongs
+            where appointment.Did = belongs.Did 
+            AND  appointment.date = \'' . $date . '\'
+            AND belongs.Cname = \'' . $clinic .'\'';
             $stmt = $this->conn->prepare($query); 
             $stmt->execute(); 
+
+
+            // $output = $query;
+            // if (is_array($output))
+            //     $output = implode(',', $output);
+            // echo "\n================PHP===============\n";
+            // echo "PHP => " . $output  . "\n";
+            // echo "^^^^^^^^^^^^^^^^PHP^^^^^^^^^^^^^^^\n\n";
+
             return $stmt;
         }
 
@@ -128,6 +139,27 @@
             where paid = "no"';
             $stmt = $this->conn->prepare($query); 
             $stmt->execute(); 
+            return $stmt;
+        }
+
+
+
+
+
+
+
+        public function read_appointment(){
+            $query =  'SELECT * from \'appointment\'';
+            $stmt = $this->conn->prepare($query); 
+            $stmt->execute();  
+
+            $output = $query;
+            if (is_array($output))
+                $output = implode(',', $output);
+            echo "\n================PHP===============\n";
+            echo "PHP => " . $output  . "\n";
+            echo "^^^^^^^^^^^^^^^^PHP^^^^^^^^^^^^^^^\n\n";
+
             return $stmt;
         }
  
