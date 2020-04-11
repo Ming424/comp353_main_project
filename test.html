@@ -1,28 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Document</title>
-</head>
-<body>
-    
-    <div class="container">
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">COMP353</a>
 
-        <div id="table_appointment"> 
-            <h1>select * from appointment</h1> 
-            <button onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')">Click me</button> 
-        </div> 
+        <div class="dropdown">
+          <button
+            class="btn btn-outline-primary dropdown-toggle"
+            type="button"
+            id="dropdown_1"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            SELECT * FROM
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdown_1">
+            <a class="nav-link" href="#item-1-1">appointment</a>
+            <a class="nav-link" href="#item-1-2">belongs</a>
+            <a class="nav-link" href="#item-1-3">bill</a>
+            <a class="nav-link" href="#item-1-4">clinic</a>
+            <a class="nav-link" href="#item-1-5">dental_assistant</a>
+            <a class="nav-link" href="#item-1-6">include</a>
+            <a class="nav-link" href="#item-1-7">patient</a>
+            <a class="nav-link" href="#item-1-8">receptionist</a>
+            <a class="nav-link" href="#item-1-9">treatment</a>
+          </div>
+        </div>
 
+        <a class="nav-link" href="#item-2-1">a</a>
+        <a class="nav-link" href="#item-2-2">b</a>
+        <a class="nav-link" href="#item-2-3">c</a>
+        <a class="nav-link" href="#item-2-4">d</a>
+        <a class="nav-link" href="#item-2-5">e</a>
+        <a class="nav-link" href="#item-2-6">f</a>
+        <a class="nav-link" href="#item-2-7">g</a>
+        <a class="nav-link" href="#item-3">Add patient</a>
+        <a class="nav-link" href="#item-4">Schedule appointment</a>
+        <a class="nav-link" href="#item-5">Modify appointment</a>
+        <a class="nav-link" href="#item-6">Delete appointment</a>
+      </nav>
 
+      <div
+        class="ml-4 mr-4 pt-4"
+        data-spy="scroll"
+        data-target="#navbar-example3"
+        data-offset="0"
+      >
 
+      <div class="SELECT_ALL_SECTION">
+        <div id="item-1-1" class="pt-5">
+          <div id="table_appointment">
+            <h3>select * from appointment</h3>
+            <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
+              See all appointment
+            </button>
+          </div>
+        </div>
 
-        <div id="table_test"> 
-            <h1>TEST UNIT</h1> 
-            <button onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read.php', 'table_test')">Click me</button> 
+        <div id="item-1-2" class="pt-5">
+            <div id="table_belongs">
+              <h3>select * from appointment</h3>
+              <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
+                See all appointment
+              </button>
+            </div>
+          </div>
+
+          <div id="item-1-3" class="pt-5">
+            <div id="table_appointment">
+              <h3>select * from appointment</h3>
+              <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
+                See all appointment
+              </button>
+            </div>
+          </div>
+
+          <div id="item-1-4" class="pt-5">
+            <div id="table_appointment">
+              <h3>select * from appointment</h3>
+              <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
+                See all appointment
+              </button>
+            </div>
+          </div>
+
+          <div id="item-1-5" class="pt-5">
+            <div id="table_appointment">
+              <h3>select * from appointment</h3>
+              <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
+                See all appointment
+              </button>
+            </div>
+          </div>
+
+          <div id="item-1-6" class="pt-5">
+            <div id="table_appointment">
+              <h3>select * from appointment</h3>
+              <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
+                See all appointment
+              </button>
+            </div>
+          </div>
+
+          <div id="item-1-7" class="pt-5">
+            <div id="table_appointment">
+              <h3>select * from appointment</h3>
+              <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
+                See all appointment
+              </button>
+            </div>
+          </div>
+
+          <div id="item-1-8" class="pt-5">
+            <div id="table_appointment">
+              <h3>select * from appointment</h3>
+              <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
+                See all appointment
+              </button>
+            </div>
+          </div>
+
+          <div id="item-1-9" class="pt-5">
+            <div id="table_appointment">
+              <h3>select * from appointment</h3>
+              <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
+                See all appointment
+              </button>
+            </div>
+          </div>
+ 
+
+    </div>
+        
+
+        <!-- <div id="table_test"> 
+            <h3>TEST UNIT</h3> 
+            <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read.php', 'table_test')">Click me</button> 
         </div> 
         <div id="table_test_2"> 
-            <h1>TEST UNIT 2</h1> 
+            <h3>TEST UNIT 2</h3> 
             <input type="text" id="ipt_test_2" value="3"><br><br>
             <button id="btn_test_2">Click me</button> 
             <script>
@@ -32,193 +165,311 @@
                     call_api('GET',url, 'table_test_2');
                 } 
             </script>
-        </div> 
+        </div>  -->
 
-
-
-
-
-        <div id="table_1">
-            <h1>read_1</h1> 
-            <p>a. Get details of all dentists in all the clinics.             </p>
-            <button onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_1.php', 'table_1')">Click me</button> 
+        <div id="item-2-1" class="pt-5">
+          <div id="table_1">
+            <h3>read_1</h3>
+            <p>a. Get details of all dentists in all the clinics.</p>
+            <button
+            <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_1.php', 'table_1')">
+              Click me
+            </button>
+          </div>
         </div>
 
-
-        <div id="table_2"> 
-            <h1>read_2</h1> 
-            <p>b. Get details of all appointments for a given dentist for a specific week.  </p>
-            <input type="text" id="ipt_table_2_1" value="1"><br><br>
-            <input type="text" id="ipt_table_2_2" value="2020-01-01"><br><br>
-            <input type="text" id="ipt_table_2_3" value="2020-01-05"><br><br>
-            <button id="btn_table_2">Click me</button> 
+        <div id="item-2-2" class="pt-5">
+          <div id="table_2">
+            <h3>read_2</h3>
+            <p>
+              b. Get details of all appointments for a given dentist for a
+              specific week.
+            </p>
+            <input type="text" id="ipt_table_2_1" value="1" /><br /><br />
+            <input
+              type="text"
+              id="ipt_table_2_2"
+              value="2020-01-01"
+            /><br /><br />
+            <input
+              type="text"
+              id="ipt_table_2_3"
+              value="2020-01-05"
+            /><br /><br />
+            <button id="btn_table_2" class="btn btn-primary" >Click me</button>
             <script>
-                document.getElementById("btn_table_2").onclick = 
-                function() {
-                    var url = "http://localhost/comp353_main_project/api/post/read_2.php?"
-                    +"Did="+document.getElementById("ipt_table_2_1").value
-                    +"&d1="+document.getElementById("ipt_table_2_2").value
-                    +"&d2="+document.getElementById("ipt_table_2_3").value
-                    ; 
-                    call_api('GET',url, 'table_2');
-                } 
+              document.getElementById("btn_table_2").onclick = function () {
+                var url =
+                  "http://localhost/comp353_main_project/api/post/read_2.php?" +
+                  "Did=" +
+                  document.getElementById("ipt_table_2_1").value +
+                  "&d1=" +
+                  document.getElementById("ipt_table_2_2").value +
+                  "&d2=" +
+                  document.getElementById("ipt_table_2_3").value;
+                call_api("GET", url, "table_2");
+              };
             </script>
+          </div>
         </div>
 
-        <div id="table_3"> 
-            <h1>read_3</h1> 
-            <p>c. Get details of all appointments at a given clinic on a specific date. </p>
-            <input type="text" id="ipt_table_3_1" value="clinic_1"><br><br>
-            <input type="text" id="ipt_table_3_2" value="2020-01-01"><br><br> 
-            <button id="btn_table_3">Click me</button> 
+        <div id="item-2-3" class="pt-5">
+          <div id="table_3">
+            <h3>read_3</h3>
+            <p>
+              c. Get details of all appointments at a given clinic on a specific
+              date.
+            </p>
+            <input
+              type="text"
+              id="ipt_table_3_1"
+              value="clinic_1"
+            /><br /><br />
+            <input
+              type="text"
+              id="ipt_table_3_2"
+              value="2020-01-01"
+            /><br /><br />
+            <button id="btn_table_3" class="btn btn-primary">Click me</button>
             <script>
-                document.getElementById("btn_table_3").onclick = 
-                function() {
-                    var url = "http://localhost/comp353_main_project/api/post/read_3.php?"
-                    +"clinic="+document.getElementById("ipt_table_3_1").value
-                    +"&date="+document.getElementById("ipt_table_3_2").value 
-                    ; 
-                    call_api('GET',url, 'table_3');
-                } 
+              document.getElementById("btn_table_3").onclick = function () {
+                var url =
+                  "http://localhost/comp353_main_project/api/post/read_3.php?" +
+                  "clinic=" +
+                  document.getElementById("ipt_table_3_1").value +
+                  "&date=" +
+                  document.getElementById("ipt_table_3_2").value;
+                call_api("GET", url, "table_3");
+              };
             </script>
+          </div>
         </div>
 
-        <div id="table_4"> 
-            <h1>read_4</h1> 
-            <p>d. Get details of all appointments of a given patient.  </p>
-            <input type="text" id="ipt_table_4_1" value="123456789"><br><br> 
-            <button id="btn_table_4">Click me</button> 
+        <div id="item-2-4" class="pt-5">
+          <div id="table_4">
+            <h3>read_4</h3>
+            <p>d. Get details of all appointments of a given patient.</p>
+            <input
+              type="text"
+              id="ipt_table_4_1"
+              value="123456789"
+            /><br /><br />
+            <button id="btn_table_4" class="btn btn-primary">Click me</button>
             <script>
-                document.getElementById("btn_table_4").onclick = 
-                function() {
-                    var url = "http://localhost/comp353_main_project/api/post/read_4.php?"
-                        +"sin="+document.getElementById("ipt_table_4_1").value
-                        ; 
-                    call_api('GET',url, 'table_4');
-                } 
+              document.getElementById("btn_table_4").onclick = function () {
+                var url =
+                  "http://localhost/comp353_main_project/api/post/read_4.php?" +
+                  "sin=" +
+                  document.getElementById("ipt_table_4_1").value;
+                call_api("GET", url, "table_4");
+              };
             </script>
+          </div>
         </div>
 
-        <div id="table_5">
-            <h1>read_5</h1> 
-            <p>e. Get the number of missed appointments for each patient (only for patients who have missed at least 1 appointment). </p>
-            <button onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_5.php', 'table_5')">Click me</button> 
+        <div id="item-2-5" class="pt-5">
+          <div id="table_5">
+            <h3>read_5</h3>
+            <p>
+              e. Get the number of missed appointments for each patient (only
+              for patients who have missed at least 1 appointment).
+            </p>
+            <button class="btn btn-primary"
+              onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_5.php', 'table_5')"
+            >
+              Click me
+            </button>
+          </div>
         </div>
 
-        <div id="table_6"> 
-            <h1>read_6</h1> 
-            <p>f. Get details of all the treatments made during a given appointment.  </p>
+        <div id="item-2-6" class="pt-5">
+          <div id="table_6">
+            <h3>read_6</h3>
+            <p> f. Get details of all the treatments made during a given appointment. </p>
             <h4>See all appointement:</h4>
             <div id="table_6_appointment"> 
-                <h1>select * from appointment</h1> 
-                <button onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_6_appointment')">See appointment</button> 
-            </div> 
-            <label>Appointement ID: <input type="text" id="ipt_table_6_1" value="2"></label><br><br> 
-            <button id="btn_table_6">Click me</button> 
+              <button class="btn btn-primary"
+                onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_6_appointment')"
+              >
+                See appointment
+              </button>
+            </div>
+            <label
+              >Appointement ID:
+              <input type="text" id="ipt_table_6_1" value="2" /></label
+            ><br /><br />
+            <button id="btn_table_6" class="btn btn-primary">Click me</button>
             <script>
-                document.getElementById("btn_table_6").onclick = 
-                function() {
-                    var url = "http://localhost/comp353_main_project/api/post/read_6.php?"
-                        +"Aid="+document.getElementById("ipt_table_6_1").value
-                        ; 
-                    call_api('GET',url, 'table_6');
-                } 
+              document.getElementById("btn_table_6").onclick = function () {
+                var url =
+                  "http://localhost/comp353_main_project/api/post/read_6.php?" +
+                  "Aid=" +
+                  document.getElementById("ipt_table_6_1").value;
+                call_api("GET", url, "table_6");
+              };
             </script>
+          </div>
         </div>
 
-
-
-
-
+        <div id="item-2-7" class="pt-5">
+          <div id="table_7">
+            <h3>read_7</h3>
+            <p>g. Get details of all unpaid bills.</p>
+            <button class="btn btn-primary"
+              onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_7.php', 'table_7')"
+            >
+              Click me
+            </button>
+          </div>
+        </div>
+        <div id="table_my_query">
+          <h3>read_4</h3>
+          <p>d. Get details of all appointments of a given patient.</p>
+          <input type="text" id="ipt_table_4_1" value="123456789" /><br /><br />
+          <button id="btn_table_4">Click me</button>
+          <script>
+            document.getElementById("btn_table_4").onclick = function () {
+              var url =
+                "http://localhost/comp353_main_project/api/post/read_4.php?" +
+                "sin=" +
+                document.getElementById("ipt_table_4_1").value;
+              call_api("GET", url, "table_4");
+            };
+          </script>
+        </div>
+      </div>
     </div>
 
-
-
-    <script>  
-        function call_api(mode, url, dst){
-            console.log("========================================================");
-            console.log("URL: " + url);
-            var elementExistID = 'el#'+dst;
-            if (document.contains(document.getElementById(elementExistID))) {
-                console.log(elementExistID + " does existed, refreshing...")
-                document.getElementById(elementExistID).remove();
-            }  
-
-            
-            
-            var request = new XMLHttpRequest() 
-            request.open(mode, url, true) 
-            request.onload = function() {  
-                var data = JSON.parse(this.response)  
-
-
-
-                console.log(data.length)
-                if(!data.length && data.error){   // data is empty
-                    console.log("EMPTY")
-                    var error_message = '<p id=\'el#' + dst + '\'>Table is empty</p>'
-                    $('#'+dst).append(error_message);  
-                } else {
-                    create_table('#'+dst, data)
-                }
-                
-            } 
-            request.send()
+    <script>
+      function call_api(mode, url, dst) {
+        console.log("========================================================");
+        console.log("URL: " + url);
+        var elementExistID = "el#" + dst;
+        if (document.contains(document.getElementById(elementExistID))) {
+          console.log(elementExistID + " does existed, refreshing...");
+          document.getElementById(elementExistID).remove();
         }
 
+        var request = new XMLHttpRequest();
+        request.open(mode, url, true);
+        request.onload = function () {
+          var data = JSON.parse(this.response);
 
-        function create_table(dst, data){
-            console.log("JSON receive:")
-            console.log(data) 
-            // console.log(data.length)
+          console.log(data.length);
+          if (!data.length && data.error) {
+            // data is empty
+            console.log("EMPTY");
+            var error_message = "<p id='el#" + dst + "'>Table is empty</p>";
+            $("#" + dst).append(error_message);
+          } else {
+            create_table("#" + dst, data);
+          }
+        };
+        request.send();
+      }
 
-            // !data.length: DATA HAS ONLY ONE LINE
-            if(!data.length){
-                console.log("SINGLE LINE")
-                console.log("CREATING TABLE...") 
-                var table = '<table border=3 id=\'el' + dst + '\'>' ; 
-                // table head
-                table+='<tr>'; 
-                var data_length = 0;
-                for(el in data) { 
-                    data_length++;
-                    table += '<th>' + el + '</th>'; 
-                }
-                table+='</tr>'; 
-                // table data
-                for(i = 0; i <  1; i++){ 
-                    table+='<tr>'
-                    for (var key in data)  table+='<td>'+data[key]+'</td>' 
-                    table+='</tr>'
-                } 
-                table+='</table>'
-                console.log(table);
-                $(dst).append(table); 
-                
-            // data.length: DATA HAS MULTIPLE LINE
-            } else {
-                console.log("CREATING TABLE...")
-                console.log(data.length)
-                var table = '<table border=3 id=\'el' + dst + '\'>' ; 
-                // table head
-                table+='<tr>'; 
-                    
-                for(el in data[0]) { 
-                    table += '<th>' + el + '</th>'; 
-                }
-                table+='</tr>'; 
-                // table data
-                for(i = 0; i < data.length; i++){ 
-                    table+='<tr>'
-                    for (var key in data[i])  table+='<td>'+data[i][key]+'</td>' 
-                    table+='</tr>'
-                } 
-                table+='</table>'
-                console.log(table);
-                $(dst).append(table); 
-            }
-            
+      function create_table(dst, data) {
+        console.log("JSON receive:");
+        console.log(data);
+        // console.log(data.length)
+
+        console.log("CREATING TABLE...");
+        var table = '<table class="table m-2"  id=\'el' + dst + "'><thead><tr>";
+
+        if (!data.length) {
+          var data_length = 0;
+          for (el in data) {
+            data_length++;
+            table += '<th scope="col">' + el + "</th>";
+          }
+        } else {
+          for (el in data[0]) {
+            table += '<th scope="col">' + el + "</th>";
+          }
         }
-        </script>
-</body>
+        table += "</tr></thead>";
+
+        if (!data.length) {
+          for (i = 0; i < 1; i++) {
+            table += "<tr>";
+            for (var key in data) table += "<td>" + data[key] + "</td>";
+            table += "</tr>";
+          }
+        } else {
+          for (i = 0; i < data.length; i++) {
+            table += "<tr>";
+            for (var key in data[i]) table += "<td>" + data[i][key] + "</td>";
+            table += "</tr>";
+          }
+        }
+
+        table += "</table>";
+        console.log(table);
+        $(dst).append(table);
+        // END
+
+        // !data.length: DATA HAS ONLY ONE LINE
+        // if(!data.length){
+        //     console.log("SINGLE LINE")
+        //     console.log("CREATING TABLE...")
+        //     var table = '<table border=3 id=\'el' + dst + '\'>' ;
+        //     // table head
+        //     table+='<tr>';
+        //     var data_length = 0;
+        //     for(el in data) {
+        //         data_length++;
+        //         table += '<th>' + el + '</th>';
+        //     }
+        //     table+='</tr>';
+        //     // table data
+        //     for(i = 0; i <  1; i++){
+        //         table+='<tr>'
+        //         for (var key in data)  table+='<td>'+data[key]+'</td>'
+        //         table+='</tr>'
+        //     }
+        //     table+='</table>'
+        //     console.log(table);
+        //     $(dst).append(table);
+
+        // // data.length: DATA HAS MULTIPLE LINE
+        // } else {
+        //     console.log("CREATING TABLE...")
+        //     console.log(data.length)
+        //     var table = '<table border=3 id=\'el' + dst + '\'>' ;
+        //     // table head
+        //     table+='<tr>';
+
+        //     for(el in data[0]) {
+        //         table += '<th>' + el + '</th>';
+        //     }
+        //     table+='</tr>';
+        //     // table data
+        //     for(i = 0; i < data.length; i++){
+        //         table+='<tr>'
+        //         for (var key in data[i])  table+='<td>'+data[i][key]+'</td>'
+        //         table+='</tr>'
+        //     }
+        //     table+='</table>'
+        //     console.log(table);
+        //     $(dst).append(table);
+        // }
+      }
+    </script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

@@ -19,33 +19,9 @@ function debug_to_console($data){
 
   $post = new Post($db); 
 
-  $post->Aid = isset($_GET['Aid']) ? $_GET['Aid'] : die();   
+  $post->Q = isset($_GET['Q']) ? $_GET['Q'] : die();   
   
 
-  $result = $post->read_6($post->Aid);  
+  $result = $post->my_query($post->Q);  
 
-  $num = $result->rowCount();
- 
-  if($num > 0) { 
-    $posts_arr = array(); 
-
-    while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-      extract($row);
-
-      $post_item = array(
-        'Bid' => $Bid,
-        'Tname' => $Tname,
-        'fee' => $fee
-      );
- 
-      array_push($posts_arr, $post_item); 
-    }
- 
-    echo json_encode($posts_arr);
-
-  } else { 
-    echo json_encode(
-      array('error' => 'No Posts Found read_6.php')
-    );
-  }
-
+  

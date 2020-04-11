@@ -136,10 +136,17 @@
         public function read_7(){
             $query = 'select Bid
             from bill
-            where paid = "no"';
+            where paid =  0';
             $stmt = $this->conn->prepare($query); 
             $stmt->execute(); 
             return $stmt;
+        }
+
+        public function my_query($q){
+            $query = $q;
+            $stmt = $this->conn->prepare($query); 
+            $stmt->execute(); 
+            // return $stmt;
         }
 
 
