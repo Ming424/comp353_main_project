@@ -28,6 +28,7 @@ function debug_to_console($data){
   
 
   $result = $post->read_2($post->Did,$post->d1,$post->d2); 
+  // $result = $post->read_2_temp(); 
   // debug_to_console($result);
 
   $num = $result->rowCount();
@@ -39,13 +40,13 @@ function debug_to_console($data){
       extract($row);
 
       $post_item = array(
-        'Aid' => $post->$Aid,
-        'Sin' => $post->$Sin,
-        'Did' => $post->$Did,
-        'Rid' => $post->$Rid,
-        'Bid' => $post->$Bid,
-        'miss' => $post->$miss,
-        'date' => $post->$date
+        'Aid' => $Aid,
+        'Sin' => $Sin,
+        'Did' => $Did,
+        'Rid' => $Rid,
+        'Bid' => $Bid,
+        'miss' => $miss,
+        'date' => $date
       );
  
       array_push($posts_arr, $post_item); 

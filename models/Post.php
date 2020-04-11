@@ -31,18 +31,21 @@
             return $stmt;
         }
 
-        // public function read_2_temp($Did,$d1,$d2){
-        //     $query = 'SELECT * 
-        //         from appointment 
-        //         where Did = ' . $Did . '
-        //         AND data < 2020-01-03
-        //         AND data > 2020-01-01';
-        //     $stmt = $this->conn->prepare($query); 
-        //     $stmt->bindParam(1, $this->Did);
+        public function read_2_temp(){
+            $query = 'select * from appointment where Did = 1 AND date >= \'2020-01-01\' AND date <= \'2020-01-05\'';
+            $stmt = $this->conn->prepare($query); 
+            $stmt->bindParam(1, $this->Did);
 
-        //     $stmt->execute(); 
-        //     return $stmt;
-        // }
+
+            // $output = $query;
+            // if (is_array($output)) $output = implode(',', $output);
+            // echo "\n================PHP===============\n";
+            // echo "PHP => " . $output  . "\n";
+            // echo "^^^^^^^^^^^^^^^^PHP^^^^^^^^^^^^^^^\n\n";
+
+            $stmt->execute(); 
+            return $stmt;
+        }
 
             /** DEBUG TEMPLATE */
             // $output = $Did;
@@ -66,12 +69,13 @@
             $stmt->execute(); 
 
             // $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            // $output = $result;
-            // if (is_array($output))
-            //     $output = implode(',', $output);
-            // echo "\n================PHP===============\n";
-            // echo "PHP => " . $output  . "\n";
-            // echo "^^^^^^^^^^^^^^^^PHP^^^^^^^^^^^^^^^\n\n";
+            
+            $output = $query;
+            if (is_array($output))
+                $output = implode(',', $output);
+            echo "\n================PHP===============\n";
+            echo "PHP => " . $output  . "\n";
+            echo "^^^^^^^^^^^^^^^^PHP^^^^^^^^^^^^^^^\n\n";
 
             return $stmt;
         }
