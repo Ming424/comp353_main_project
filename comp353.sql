@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- 主机： 127.0.0.1
--- 生成日期： 2020-04-08 20:20:39
--- 服务器版本： 10.4.11-MariaDB
--- PHP 版本： 7.4.4
+-- Host: 127.0.0.1
+-- Generation Time: Apr 11, 2020 at 08:26 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.2.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 数据库： `comp353`
+-- Database: `comp353`
 --
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `appointment`
+-- Table structure for table `appointment`
 --
 
 CREATE TABLE `appointment` (
@@ -34,24 +35,41 @@ CREATE TABLE `appointment` (
   `Rid` int(4) NOT NULL,
   `Bid` int(4) NOT NULL,
   `miss` tinyint(1) NOT NULL,
-  `data` tinyint(1) NOT NULL
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `appointment`
+--
+
+INSERT INTO `appointment` (`Aid`, `Sin`, `Did`, `Rid`, `Bid`, `miss`, `date`) VALUES
+(2, 123456789, 1, 1, 1, 1, '2020-01-01');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `belongs`
+-- Table structure for table `belongs`
 --
 
 CREATE TABLE `belongs` (
-  `Cname` varchar(4) NOT NULL,
-  `Did` int(4) NOT NULL
+  `BelongId` int(11) NOT NULL,
+  `Cname` varchar(50) NOT NULL,
+  `Did` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `belongs`
+--
+
+INSERT INTO `belongs` (`BelongId`, `Cname`, `Did`) VALUES
+(6, 'clinic_1', 1),
+(7, 'clinic_1', 2),
+(8, 'clinic_2', 1);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `bill`
+-- Table structure for table `bill`
 --
 
 CREATE TABLE `bill` (
@@ -59,42 +77,77 @@ CREATE TABLE `bill` (
   `Paid` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `bill`
+--
+
+INSERT INTO `bill` (`Bid`, `Paid`) VALUES
+(1, 0),
+(2, 0);
+
 -- --------------------------------------------------------
 
 --
--- 表的结构 `clinic`
+-- Table structure for table `clinic`
 --
 
 CREATE TABLE `clinic` (
-  `Cname` varchar(4) NOT NULL
+  `Cname` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `clinic`
+--
+
+INSERT INTO `clinic` (`Cname`) VALUES
+('clinic_1'),
+('clinic_2');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `dental_assistant`
+-- Table structure for table `dental_assistant`
 --
 
 CREATE TABLE `dental_assistant` (
   `DAid` int(4) NOT NULL,
-  `DAname` varchar(4) NOT NULL
+  `DAname` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `dental_assistant`
+--
+
+INSERT INTO `dental_assistant` (`DAid`, `DAname`) VALUES
+(1, 'DA_1'),
+(2, 'DA_2');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `dentist`
+-- Table structure for table `dentist`
 --
 
 CREATE TABLE `dentist` (
   `Did` int(4) NOT NULL,
-  `Dname` varchar(4) NOT NULL
+  `Dname` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `dentist`
+--
+
+INSERT INTO `dentist` (`Did`, `Dname`) VALUES
+(1, 'Tom'),
+(2, 'Jack'),
+(3, 'Mary'),
+(4, 'Sally'),
+(7, 'Pony');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `include`
+-- Table structure for table `include`
 --
 
 CREATE TABLE `include` (
@@ -105,119 +158,197 @@ CREATE TABLE `include` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `patient`
+-- Table structure for table `patient`
 --
 
 CREATE TABLE `patient` (
-  `Pname` varchar(4) NOT NULL,
-  `Sin` int(4) NOT NULL
+  `Pname` varchar(50) NOT NULL,
+  `Sin` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `patient`
+--
+
+INSERT INTO `patient` (`Pname`, `Sin`) VALUES
+('patient_1', 123456789),
+('patient_2', 987654321);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `receptionist`
+-- Table structure for table `receptionist`
 --
 
 CREATE TABLE `receptionist` (
   `Rid` int(4) NOT NULL,
-  `Rname` varchar(4) NOT NULL
+  `Rname` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `receptionist`
+--
+
+INSERT INTO `receptionist` (`Rid`, `Rname`) VALUES
+(1, 'recept_1'),
+(2, 'recept_2');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `treatment`
+-- Table structure for table `treatment`
 --
 
 CREATE TABLE `treatment` (
-  `TName` varchar(4) NOT NULL,
+  `TName` varchar(50) NOT NULL,
   `fee` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- 转储表的索引
+-- Dumping data for table `treatment`
+--
+
+INSERT INTO `treatment` (`TName`, `fee`) VALUES
+('cut_hair', 50),
+('drink_hot_water', 10);
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- 表的索引 `appointment`
+-- Indexes for table `appointment`
 --
 ALTER TABLE `appointment`
-  ADD PRIMARY KEY (`Aid`);
+  ADD PRIMARY KEY (`Aid`),
+  ADD KEY `Did` (`Did`),
+  ADD KEY `Rid` (`Rid`),
+  ADD KEY `Sin` (`Sin`),
+  ADD KEY `Bid` (`Bid`);
 
 --
--- 表的索引 `belongs`
+-- Indexes for table `belongs`
 --
 ALTER TABLE `belongs`
+  ADD PRIMARY KEY (`BelongId`),
   ADD KEY `Cname` (`Cname`),
   ADD KEY `Did` (`Did`);
 
 --
--- 表的索引 `bill`
+-- Indexes for table `bill`
 --
 ALTER TABLE `bill`
   ADD PRIMARY KEY (`Bid`);
 
 --
--- 表的索引 `clinic`
+-- Indexes for table `clinic`
 --
 ALTER TABLE `clinic`
   ADD PRIMARY KEY (`Cname`);
 
 --
--- 表的索引 `dental_assistant`
+-- Indexes for table `dental_assistant`
 --
 ALTER TABLE `dental_assistant`
   ADD PRIMARY KEY (`DAid`);
 
 --
--- 表的索引 `dentist`
+-- Indexes for table `dentist`
 --
 ALTER TABLE `dentist`
   ADD PRIMARY KEY (`Did`);
 
 --
--- 表的索引 `include`
+-- Indexes for table `include`
 --
 ALTER TABLE `include`
   ADD KEY `Tname` (`Tname`),
   ADD KEY `Bid` (`Bid`);
 
 --
--- 表的索引 `patient`
+-- Indexes for table `patient`
 --
 ALTER TABLE `patient`
   ADD PRIMARY KEY (`Sin`);
 
 --
--- 表的索引 `receptionist`
+-- Indexes for table `receptionist`
 --
 ALTER TABLE `receptionist`
   ADD PRIMARY KEY (`Rid`);
 
 --
--- 表的索引 `treatment`
+-- Indexes for table `treatment`
 --
 ALTER TABLE `treatment`
   ADD PRIMARY KEY (`TName`);
 
 --
--- 限制导出的表
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- 限制表 `belongs`
+-- AUTO_INCREMENT for table `appointment`
+--
+ALTER TABLE `appointment`
+  MODIFY `Aid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `belongs`
+--
+ALTER TABLE `belongs`
+  MODIFY `BelongId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `bill`
+--
+ALTER TABLE `bill`
+  MODIFY `Bid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `dental_assistant`
+--
+ALTER TABLE `dental_assistant`
+  MODIFY `DAid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `dentist`
+--
+ALTER TABLE `dentist`
+  MODIFY `Did` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `receptionist`
+--
+ALTER TABLE `receptionist`
+  MODIFY `Rid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `appointment`
+--
+ALTER TABLE `appointment`
+  ADD CONSTRAINT `appointment_ibfk_2` FOREIGN KEY (`Did`) REFERENCES `dentist` (`Did`),
+  ADD CONSTRAINT `appointment_ibfk_3` FOREIGN KEY (`Rid`) REFERENCES `receptionist` (`Rid`),
+  ADD CONSTRAINT `appointment_ibfk_4` FOREIGN KEY (`Sin`) REFERENCES `patient` (`Sin`),
+  ADD CONSTRAINT `appointment_ibfk_5` FOREIGN KEY (`Bid`) REFERENCES `bill` (`Bid`);
+
+--
+-- Constraints for table `belongs`
 --
 ALTER TABLE `belongs`
   ADD CONSTRAINT `Cname` FOREIGN KEY (`Cname`) REFERENCES `clinic` (`Cname`),
   ADD CONSTRAINT `Did` FOREIGN KEY (`Did`) REFERENCES `dentist` (`Did`);
 
 --
--- 限制表 `include`
+-- Constraints for table `include`
 --
 ALTER TABLE `include`
-  ADD CONSTRAINT `Bid` FOREIGN KEY (`Bid`) REFERENCES `bill` (`Bid`),
-  ADD CONSTRAINT `Tname` FOREIGN KEY (`Tname`) REFERENCES `treatment` (`TName`);
+  ADD CONSTRAINT `Tname` FOREIGN KEY (`Tname`) REFERENCES `treatment` (`TName`),
+  ADD CONSTRAINT `include_ibfk_1` FOREIGN KEY (`Bid`) REFERENCES `bill` (`Bid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
