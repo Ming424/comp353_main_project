@@ -45,7 +45,7 @@ function debug_to_console($data){
         'Rid' => $post->$Rid,
         'Bid' => $post->$Bid,
         'miss' => $post->$miss,
-        'data' => $post->$data
+        'date' => $post->$date
       );
  
       array_push($posts_arr, $post_item); 

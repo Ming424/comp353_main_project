@@ -12,7 +12,7 @@
         public $Rid;
         public $Bid;
         public $miss;
-        public $data; 
+        public $date; 
 
         public $count;
 
@@ -29,18 +29,6 @@
             $stmt = $this->conn->prepare($query); 
             $stmt->execute(); 
             return $stmt;
-        }
-
-        function debug_to_console($data)
-        {
-            $output = $data;
-            if (is_array($output))
-                $output = implode(',', $output);
-
-            /** ENABLE THE FOLLOWING ECHO FOR DEBUGGING */
-            echo "\n================PHP===============\n";
-            echo "PHP => " . $output  . "\n";
-            echo "^^^^^^^^^^^^^^^^PHP^^^^^^^^^^^^^^^\n\n";
         }
 
         // public function read_2_temp($Did,$d1,$d2){
@@ -64,22 +52,27 @@
             // echo "^^^^^^^^^^^^^^^^PHP^^^^^^^^^^^^^^^\n\n";
 
         public function read_2($Did,$d1,$d2){
-            $query = 'SELECT * 
-                from appointment 
-                where Did = ' . $Did . '
-                AND data < ' . $d1 . '
-                AND data > ' . $d2;
+            $query = 
+                'SELECT * 
+                FROM appointment 
+                WHERE Did = ' . $Did . '
+                AND date >= \'' . $d1 . '\'' . '
+                AND date <= \'' . $d2 .'\'';
             $stmt = $this->conn->prepare($query); 
             $stmt->bindParam(1, $this->Did);
 
-            // $output = $query;
+            
+
+            $stmt->execute(); 
+
+            // $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            // $output = $result;
             // if (is_array($output))
             //     $output = implode(',', $output);
             // echo "\n================PHP===============\n";
             // echo "PHP => " . $output  . "\n";
             // echo "^^^^^^^^^^^^^^^^PHP^^^^^^^^^^^^^^^\n\n";
 
-            $stmt->execute(); 
             return $stmt;
         }
 
