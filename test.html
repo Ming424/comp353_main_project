@@ -40,31 +40,26 @@
 
         <div id="table_1">
             <h1>read_1</h1> 
+            <p>a. Get details of all dentists in all the clinics.             </p>
             <button onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_1.php', 'table_1')">Click me</button> 
         </div>
 
 
-
-
-
-
-
-
         <div id="table_2"> 
             <h1>read_2</h1> 
+            <p>b. Get details of all appointments for a given dentist for a specific week.  </p>
             <input type="text" id="ipt_table_2_1" value="1"><br><br>
             <input type="text" id="ipt_table_2_2" value="2020-01-01"><br><br>
             <input type="text" id="ipt_table_2_3" value="2020-01-05"><br><br>
             <button id="btn_table_2">Click me</button> 
             <script>
-                document.getElementById("btn_table_2").onclick = function() {f_table_2()};
-                function f_table_2() {
+                document.getElementById("btn_table_2").onclick = 
+                function() {
                     var url = "http://localhost/comp353_main_project/api/post/read_2.php?"
                     +"Did="+document.getElementById("ipt_table_2_1").value
                     +"&d1="+document.getElementById("ipt_table_2_2").value
                     +"&d2="+document.getElementById("ipt_table_2_3").value
-                    ;
-                    // var url = "http://localhost/comp353_main_project/api/post/read_2.php?Did=3";
+                    ; 
                     call_api('GET',url, 'table_2');
                 } 
             </script>
@@ -72,20 +67,42 @@
 
         <div id="table_3"> 
             <h1>read_3</h1> 
+            <p>c. Get details of all appointments at a given clinic on a specific date. </p>
             <input type="text" id="ipt_table_3_1" value="clinic_1"><br><br>
             <input type="text" id="ipt_table_3_2" value="2020-01-01"><br><br> 
             <button id="btn_table_3">Click me</button> 
             <script>
-                document.getElementById("btn_table_3").onclick = function() {f_table_3()};
-                function f_table_3() {
+                document.getElementById("btn_table_3").onclick = 
+                function() {
                     var url = "http://localhost/comp353_main_project/api/post/read_3.php?"
                     +"clinic="+document.getElementById("ipt_table_3_1").value
                     +"&date="+document.getElementById("ipt_table_3_2").value 
-                    ;
-                    // var url = "http://localhost/comp353_main_project/api/post/read_2.php?Did=3";
+                    ; 
                     call_api('GET',url, 'table_3');
                 } 
             </script>
+        </div>
+
+        <div id="table_4"> 
+            <h1>read_4</h1> 
+            <p>d. Get details of all appointments of a given patient.  </p>
+            <input type="text" id="ipt_table_4_1" value="123456789"><br><br> 
+            <button id="btn_table_4">Click me</button> 
+            <script>
+                document.getElementById("btn_table_4").onclick = 
+                function() {
+                    var url = "http://localhost/comp353_main_project/api/post/read_4.php?"
+                        +"sin="+document.getElementById("ipt_table_4_1").value
+                        ; 
+                    call_api('GET',url, 'table_4');
+                } 
+            </script>
+        </div>
+
+        <div id="table_5">
+            <h1>read_5</h1> 
+            <p>e. Get the number of missed appointments for each patient (only for patients who have missed at least 1 appointment). </p>
+            <button onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_5.php', 'table_5')">Click me</button> 
         </div>
 
 

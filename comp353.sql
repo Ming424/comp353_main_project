@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2020 at 08:26 PM
+-- Generation Time: Apr 11, 2020 at 10:29 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.28
 
@@ -43,7 +43,9 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`Aid`, `Sin`, `Did`, `Rid`, `Bid`, `miss`, `date`) VALUES
-(2, 123456789, 1, 1, 1, 1, '2020-01-01');
+(2, 123456789, 1, 1, 1, 1, '2020-01-01'),
+(3, 987654321, 2, 2, 2, 1, '2020-01-05'),
+(4, 123456789, 2, 1, 3, 0, '2020-01-01');
 
 -- --------------------------------------------------------
 
@@ -83,7 +85,8 @@ CREATE TABLE `bill` (
 
 INSERT INTO `bill` (`Bid`, `Paid`) VALUES
 (1, 0),
-(2, 0);
+(2, 0),
+(3, 0);
 
 -- --------------------------------------------------------
 
@@ -291,7 +294,7 @@ ALTER TABLE `treatment`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `Aid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Aid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `belongs`
@@ -303,7 +306,7 @@ ALTER TABLE `belongs`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `Bid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Bid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `dental_assistant`

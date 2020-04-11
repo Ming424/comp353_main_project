@@ -102,19 +102,19 @@
             return $stmt;
         }
 
-        public function read_4(){
-            $query = 'select *
+        public function read_4($sin){
+            $query = 'SELECT *
             from appointment
-            where Sin = "given sin"';
+            where Sin = \'' . $sin . '\'';
             $stmt = $this->conn->prepare($query); 
             $stmt->execute(); 
             return $stmt;
         }
 
         public function read_5(){
-            $query = 'select Sin, count(*) as count
-            from appointment
-            where miss = "yes"
+            $query = 'SELECT Sin, count(*) as count
+            FROM appointment
+            where miss = 1
             group by Sin
             having count(*) > 0';
             $stmt = $this->conn->prepare($query); 
@@ -122,10 +122,10 @@
             return $stmt;
         }
 
-        public function read_6(){
-            $query = 'select appointment.Bid, treatment.Tname, treatment.fee 
+        public function read_6($Aid){
+            $query = 'SELECT appointment.Bid, treatment.Tname, treatment.fee 
             from appointment, include, treatment
-            where Aid = "given appointment id" AND 
+            where Aid = \'' . $Aid . '\' AND 
                     appointment.Bid = include.Bid AND 
                     include.Tname = treatment.Tname';
             $stmt = $this->conn->prepare($query); 
@@ -149,16 +149,16 @@
 
 
         public function read_appointment(){
-            $query =  'SELECT * from \'appointment\'';
+            $query =  'SELECT * from appointment';
             $stmt = $this->conn->prepare($query); 
             $stmt->execute();  
 
-            $output = $query;
-            if (is_array($output))
-                $output = implode(',', $output);
-            echo "\n================PHP===============\n";
-            echo "PHP => " . $output  . "\n";
-            echo "^^^^^^^^^^^^^^^^PHP^^^^^^^^^^^^^^^\n\n";
+            // $output = $query;
+            // if (is_array($output))
+            //     $output = implode(',', $output);
+            // echo "\n================PHP===============\n";
+            // echo "PHP => " . $output  . "\n";
+            // echo "^^^^^^^^^^^^^^^^PHP^^^^^^^^^^^^^^^\n\n";
 
             return $stmt;
         }
