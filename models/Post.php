@@ -228,6 +228,56 @@
             $stmt->execute();   
             return $stmt;
         }
+
+        public function read_single_appointment($Aid){
+            $query =  'SELECT * from appointment WHERE Aid = \'' . $Aid . '\'';
+            $stmt = $this->conn->prepare($query); 
+            $stmt->execute();   
+            return $stmt;
+        }
+
+        public function modify_appointment($Aid,$Sin,$Did,$Rid,$Bid,$miss,$date){
+            $query =  'UPDATE appointment
+                SET Sin = \''. $Sin . '\',
+                    Did = \''. $Did . '\',
+                    Rid = \''. $Rid . '\',
+                    Bid = \''. $Bid . '\',
+                    miss = \''. $miss . '\',
+                    date = \''. $date . '\'
+            WHERE Aid = \''. $Aid . '\''; 
+            
+            $stmt = $this->conn->prepare($query); 
+            if($stmt->execute())   return true; 
+            printf("Error: $s.\n", $stmt->error);
+            return false;
+        }
+
+        public function delete_appointment($Aid){
+            $query =  'DELETE 
+                FROM appointment
+                WHERE Aid = \''. $Aid . '\''; 
+            $stmt = $this->conn->prepare($query); 
+            if($stmt->execute()) {
+                return true;
+            }
+            printf("Error: $s.\n", $stmt->error);
+            return false;
+        }
+
+        public function add_patient($Pname,$Sin){
+            $query =  'INSERT INTO patient 
+                VALUE (\'' .$Pname . '\',\'' . $Sin . '\')'; 
+            $stmt = $this->conn->prepare($query); 
+            
+            
+            if($stmt->execute()) {
+                return true;
+            }
+            printf("Error: $s.\n", $stmt->error);
+            return false;
+        }
+
+
  
 
        

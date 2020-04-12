@@ -259,6 +259,173 @@
             </div>
           </div>
 
+          <div class="MODIFY_DB_SECTION">
+
+<!-- Add a patient -->
+
+            <div id="item-3" class="pt-5">
+                <div id="table_11">
+                <h3>Add a patient</h3> 
+                 <!-- See all patient -->
+                 <div id="table_11_patient">
+                    <button class="btn btn btn-outline-info" 
+                    onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_patient.php', 'table_11_patient')"
+                > See all patient </button>
+                </div><br/>
+                <!--  -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend"> <span class="input-group-text" >Pname</span> </div>
+                    <input  type="text" class="form-control" id="ipt_table_11_1"/>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend"> <span class="input-group-text" >SIN</span> </div>
+                    <input  type="text" class="form-control" id="ipt_table_11_2"/>
+                </div> 
+                <button id="btn_table_11" class="btn btn-info"> Add patient </button>
+                <script>
+                    document.getElementById("btn_table_11").onclick = function () {
+                    var url = "http://localhost/comp353_main_project/api/post/add_patient.php?" +
+                        "Pname=" + document.getElementById("ipt_table_11_1").value +
+                        "&Sin=" + document.getElementById("ipt_table_11_2").value;
+                    call_api("GET", url, "table_11");
+                    };
+                </script>
+                </div>
+            </div>
+
+<!-- Schedule an appointment -->
+            <div id="item-4" class="pt-5">
+                <div id="table_+2">
+                <h3>Schedule a appointment</h3> 
+                <p>NOT FINISH</p>
+                <div class="input-group  mb-3">
+                    <div class="input-group-prepend"> <span class="input-group-text" >SIN</span> </div>
+                    <input  type="text" class="form-control" id="ipt_table_+1_1"/>
+                </div>
+                <div class="input-group  mb-3">
+                    <div class="input-group-prepend"> <span class="input-group-text" >Did</span> </div>
+                    <input  type="text" class="form-control" id="ipt_table_+1_2"/>
+                </div> 
+                <button id="btn_table_+2" class="btn btn-primary"> > </button>
+                <script>
+                    document.getElementById("btn_table_+2").onclick = function () {
+                    var url = "http://localhost/comp353_main_project/api/post/create_appointement.php?" +
+                        "Pname=" + document.getElementById("ipt_table_+1_1").value +
+                        "&SIN=" + document.getElementById("ipt_table_+1_2").value;
+                    call_api("GET", url, "table_+2");
+                    };
+                </script>
+                </div>
+            </div>
+<!-- 33 Modify an appointment -->
+            <div id="item-5" class="pt-5">
+                <div id="table_33">
+                <h3>Modify an appointment</h3>  
+                <!-- See all appointment -->
+                <div id="table_33_appointment">
+                    <button class="btn btn-outline-warning" 
+                    onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_33_appointment')"
+                >
+                  1. See all appointment </button>
+                </div><br/>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend"> <span class="input-group-text" >2. Aid that you want to modify</span> </div>
+                    <input  type="text" class="form-control" id="ipt_table_33_1"/>
+                </div>
+                <!-- See specific appointment -->
+                <div id="table_333_appointment">
+                    <button id="btn_table_333" class="btn btn-warning">3. Modify this appointment </button>
+                </div><br/>
+                <script>
+                    document.getElementById("btn_table_333").onclick = function () {
+                    var url = "http://localhost/comp353_main_project/api/post/read_single_appointment.php?" +
+                        "Aid=" + document.getElementById("ipt_table_33_1").value;
+                    call_api_Aid_to_input("GET", url,"table_333_appointment");
+                    };
+                </script>
+                <div id="table_3333_appointment">
+                    <p>4. Make your change</p>
+                    <!-- fill the following input section --> 
+                    <div class="input-group  mb-3">
+                        <div class="input-group-prepend"> <span class="input-group-text"  >Aid</span> </div>
+                        <input  type="text" class="form-control" id="ipt_table_33_2" readonly />
+                    </div> 
+                    <div class="input-group  mb-3">
+                        <div class="input-group-prepend"> <span class="input-group-text" >Sin</span> </div>
+                        <input  type="text" class="form-control" id="ipt_table_33_3"/>
+                    </div> 
+                    <div class="input-group  mb-3">
+                        <div class="input-group-prepend"> <span class="input-group-text" >Did</span> </div>
+                        <input  type="text" class="form-control" id="ipt_table_33_4"/>
+                    </div> 
+                    <div class="input-group  mb-3">
+                        <div class="input-group-prepend"> <span class="input-group-text" >Rid</span> </div>
+                        <input  type="text" class="form-control" id="ipt_table_33_5"/>
+                    </div> 
+                    <div class="input-group  mb-3">
+                        <div class="input-group-prepend"> <span class="input-group-text" >Bid</span> </div>
+                        <input  type="text" class="form-control" id="ipt_table_33_6"/>
+                    </div> 
+                    <div class="input-group  mb-3">
+                        <div class="input-group-prepend"> <span class="input-group-text" >miss</span> </div>
+                        <input  type="text" class="form-control" id="ipt_table_33_7"/>
+                    </div> 
+                    <div class="input-group  mb-3">
+                        <div class="input-group-prepend"> <span class="input-group-text" >date</span> </div>
+                        <input  type="text" class="form-control" id="ipt_table_33_8"/>
+                    </div> 
+                    <button id="btn_table_3333" class="btn btn-warning"> 5. Make the change </button>
+                    <script>
+                        document.getElementById("btn_table_3333").onclick = function () {
+                        var url = "http://localhost/comp353_main_project/api/post/modify_appointment.php?" +
+                            "Aid=" + document.getElementById("ipt_table_33_2").value +
+                            "&Sin=" + document.getElementById("ipt_table_33_3").value +
+                            "&Did=" + document.getElementById("ipt_table_33_4").value +
+                            "&Rid=" + document.getElementById("ipt_table_33_5").value +
+                            "&Bid=" + document.getElementById("ipt_table_33_6").value +
+                            "&miss=" + document.getElementById("ipt_table_33_7").value +
+                            "&date=" + document.getElementById("ipt_table_33_8").value;
+                            call_api("POST", url, "table_3333_appointment");
+                        };
+                    </script>
+                    </div>
+                </div>
+            </div>
+
+<!-- 44 Delete an appointment -->
+            <div id="item-6" class="pt-5">
+                <div id="table_44">
+                <h3>Delete an appointment</h3> 
+                 <!-- See all appointment -->
+                 <div id="table_44_appointment">
+                    <button class="btn btn btn-outline-danger" 
+                    onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_44_appointment')"
+                >
+                  1. See all appointment </button>
+                </div><br/>
+                <!--  -->
+                <div id="table_4444_appointment">
+                <div class="input-group  mb-3">
+                    <div class="input-group-prepend"> <span class="input-group-text" >2. Enter Aid that you want to delete</span> </div>
+                    <input  type="text" class="form-control" id="ipt_table_44_1"/>
+                </div> 
+                <button id="btn_table_44" class="btn btn-danger"> 3. Delete this appointment </button>
+                <script>
+                    document.getElementById("btn_table_44").onclick = function () {
+                    var url = "http://localhost/comp353_main_project/api/post/delete_appointment.php?" +
+                        "Aid=" + document.getElementById("ipt_table_44_1").value;
+                    call_api("GET", url, "table_4444_appointment");
+                    };
+                </script>
+                </div>
+                </div>
+            </div>
+
+
+
+            </div>
+
+
 
           
 
@@ -394,6 +561,41 @@
     </div>
 
     <script>
+
+        function call_api_Aid_to_input(mode,url,dst){
+            console.log("=========================call_api_Aid_to_input===============================");
+            console.log("URL: " + url); 
+            // Check exist
+            var elementExistID = "el#" + dst;
+            if (document.contains(document.getElementById(elementExistID))) {
+            console.log(elementExistID + " does existed, refreshing...");
+            document.getElementById(elementExistID).remove();
+            }
+            // CALL API
+            var request = new XMLHttpRequest();
+            request.open(mode, url, true);
+            request.onload = function () {
+                var data = JSON.parse(this.response); 
+                console.log(data.length);
+                if (!data.length && data.error) { 
+                    console.log("EMPTY");
+                    var error_message = "<p id='el#" + dst + "'>Table is empty</p>";
+                    $("#" + dst).append(error_message);
+                } else {
+                    // MODIFY DATE IN INPUT FIELD
+                    console.log(data[0]);
+                    document.getElementById("ipt_table_33_2").value = data[0].Aid;
+                    document.getElementById("ipt_table_33_3").value = data[0].Sin;
+                    document.getElementById("ipt_table_33_4").value = data[0].Did;
+                    document.getElementById("ipt_table_33_5").value = data[0].Rid;
+                    document.getElementById("ipt_table_33_6").value = data[0].Bid;
+                    document.getElementById("ipt_table_33_7").value = data[0].miss;
+                    document.getElementById("ipt_table_33_8").value = data[0].date;
+                }
+            };
+            request.send(); 
+        }
+
       function call_api(mode, url, dst) {
         console.log("========================================================");
         console.log("URL: " + url);
@@ -427,7 +629,7 @@
         // console.log(data.length)
 
         console.log("CREATING TABLE...");
-        var table = '<table class="table m-2"  id=\'el' + dst + "'><thead><tr>";
+        var table = '<table class="table table-striped table-bordered mt-2"  id=\'el' + dst + "'><thead><tr>";
 
         if (!data.length) {
           var data_length = 0;
