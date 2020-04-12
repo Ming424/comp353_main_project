@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2020 at 10:29 PM
+-- Generation Time: Apr 12, 2020 at 02:33 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.28
 
@@ -86,7 +86,7 @@ CREATE TABLE `bill` (
 INSERT INTO `bill` (`Bid`, `Paid`) VALUES
 (1, 0),
 (2, 0),
-(3, 0);
+(3, 1);
 
 -- --------------------------------------------------------
 
@@ -154,9 +154,18 @@ INSERT INTO `dentist` (`Did`, `Dname`) VALUES
 --
 
 CREATE TABLE `include` (
-  `Tname` varchar(4) NOT NULL,
+  `IncludeId` int(11) NOT NULL,
+  `Tname` varchar(50) NOT NULL,
   `Bid` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `include`
+--
+
+INSERT INTO `include` (`IncludeId`, `Tname`, `Bid`) VALUES
+(1, 'cut_hair', 1),
+(2, 'drink_hot_water', 1);
 
 -- --------------------------------------------------------
 
@@ -203,7 +212,7 @@ INSERT INTO `receptionist` (`Rid`, `Rname`) VALUES
 --
 
 CREATE TABLE `treatment` (
-  `TName` varchar(50) NOT NULL,
+  `Tname` varchar(50) NOT NULL,
   `fee` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -211,7 +220,7 @@ CREATE TABLE `treatment` (
 -- Dumping data for table `treatment`
 --
 
-INSERT INTO `treatment` (`TName`, `fee`) VALUES
+INSERT INTO `treatment` (`Tname`, `fee`) VALUES
 ('cut_hair', 50),
 ('drink_hot_water', 10);
 
@@ -265,6 +274,7 @@ ALTER TABLE `dentist`
 -- Indexes for table `include`
 --
 ALTER TABLE `include`
+  ADD PRIMARY KEY (`IncludeId`),
   ADD KEY `Tname` (`Tname`),
   ADD KEY `Bid` (`Bid`);
 
@@ -284,7 +294,7 @@ ALTER TABLE `receptionist`
 -- Indexes for table `treatment`
 --
 ALTER TABLE `treatment`
-  ADD PRIMARY KEY (`TName`);
+  ADD PRIMARY KEY (`Tname`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -319,6 +329,12 @@ ALTER TABLE `dental_assistant`
 --
 ALTER TABLE `dentist`
   MODIFY `Did` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `include`
+--
+ALTER TABLE `include`
+  MODIFY `IncludeId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `receptionist`
