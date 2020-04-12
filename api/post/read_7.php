@@ -18,7 +18,9 @@
       extract($row);
 
       $post_item = array(
-        'Bid' => $Bid
+        'Bid' => $Bid,
+        'sum' => $sum,
+        'Pname' => $Pname
       );
  
       array_push($posts_arr, $post_item); 

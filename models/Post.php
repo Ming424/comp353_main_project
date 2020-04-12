@@ -6,6 +6,7 @@
         public $Did;
         public $Dname;
         public $Cname; 
+        public $Pname; 
 
         public $Aid;
         public $Sin;
@@ -134,9 +135,10 @@
         }
 
         public function read_7(){
-            $query = 'select Bid
-            from bill
-            where paid =  0';
+            $query = 'select bill.Bid, Sum(treatment.fee) as sum, Pname
+            from bill, include, treatment, appointment, patient
+            where paid = 0 AND bill.Bid = include.Bid AND treatment.Tname = include.Tname AND bill.Bid = appointment.Bid AND appointment.SIN = patient.SIN
+            group by Bid';
             $stmt = $this->conn->prepare($query); 
             $stmt->execute(); 
             return $stmt;

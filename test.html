@@ -14,6 +14,7 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="test.css">
   </head>
   <body>
     <div class="main">
@@ -37,10 +38,11 @@
             <a class="nav-link" href="#item-1-3">bill</a>
             <a class="nav-link" href="#item-1-4">clinic</a>
             <a class="nav-link" href="#item-1-5">dental_assistant</a>
-            <a class="nav-link" href="#item-1-6">include</a>
-            <a class="nav-link" href="#item-1-7">patient</a>
-            <a class="nav-link" href="#item-1-8">receptionist</a>
-            <a class="nav-link" href="#item-1-9">treatment</a>
+            <a class="nav-link" href="#item-1-6">dentist</a>
+            <a class="nav-link" href="#item-1-7">include</a>
+            <a class="nav-link" href="#item-1-8">patient</a>
+            <a class="nav-link" href="#item-1-9">receptionist</a>
+            <a class="nav-link" href="#item-1-10">treatment</a>
           </div>
         </div>
 
@@ -63,101 +65,17 @@
         data-target="#navbar-example3"
         data-offset="0"
       >
+       
 
-      <div class="SELECT_ALL_SECTION">
-        <div id="item-1-1" class="pt-5">
-          <div id="table_appointment">
-            <h3>select * from appointment</h3>
-            <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
-              See all appointment
-            </button>
-          </div>
-        </div>
-
-        <div id="item-1-2" class="pt-5">
-            <div id="table_belongs">
-              <h3>select * from appointment</h3>
-              <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
-                See all appointment
-              </button>
-            </div>
-          </div>
-
-          <div id="item-1-3" class="pt-5">
-            <div id="table_appointment">
-              <h3>select * from appointment</h3>
-              <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
-                See all appointment
-              </button>
-            </div>
-          </div>
-
-          <div id="item-1-4" class="pt-5">
-            <div id="table_appointment">
-              <h3>select * from appointment</h3>
-              <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
-                See all appointment
-              </button>
-            </div>
-          </div>
-
-          <div id="item-1-5" class="pt-5">
-            <div id="table_appointment">
-              <h3>select * from appointment</h3>
-              <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
-                See all appointment
-              </button>
-            </div>
-          </div>
-
-          <div id="item-1-6" class="pt-5">
-            <div id="table_appointment">
-              <h3>select * from appointment</h3>
-              <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
-                See all appointment
-              </button>
-            </div>
-          </div>
-
-          <div id="item-1-7" class="pt-5">
-            <div id="table_appointment">
-              <h3>select * from appointment</h3>
-              <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
-                See all appointment
-              </button>
-            </div>
-          </div>
-
-          <div id="item-1-8" class="pt-5">
-            <div id="table_appointment">
-              <h3>select * from appointment</h3>
-              <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
-                See all appointment
-              </button>
-            </div>
-          </div>
-
-          <div id="item-1-9" class="pt-5">
-            <div id="table_appointment">
-              <h3>select * from appointment</h3>
-              <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')" >
-                See all appointment
-              </button>
-            </div>
-          </div>
- 
-
-    </div>
-        
-
-        <!-- <div id="table_test"> 
+        <!-- TESTING AREA -->
+          <!-- <div id="table_test"> 
             <h3>TEST UNIT</h3> 
-            <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read.php', 'table_test')">Click me</button> 
+            <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read.php', 'table_test')"> ></button> 
         </div> 
         <div id="table_test_2"> 
             <h3>TEST UNIT 2</h3> 
             <input type="text" id="ipt_test_2" value="3"><br><br>
-            <button id="btn_test_2">Click me</button> 
+            <button id="btn_test_2"> ></button> 
             <script>
                 document.getElementById("btn_test_2").onclick = function() {f_test_2()};
                 function f_test_2() {
@@ -166,177 +84,312 @@
                 } 
             </script>
         </div>  -->
-
-        <div id="item-2-1" class="pt-5">
-          <div id="table_1">
-            <h3>read_1</h3>
-            <p>a. Get details of all dentists in all the clinics.</p>
-            <button
-            <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_1.php', 'table_1')">
-              Click me
-            </button>
-          </div>
-        </div>
-
-        <div id="item-2-2" class="pt-5">
-          <div id="table_2">
-            <h3>read_2</h3>
-            <p>
-              b. Get details of all appointments for a given dentist for a
-              specific week.
-            </p>
-            <input type="text" id="ipt_table_2_1" value="1" /><br /><br />
-            <input
-              type="text"
-              id="ipt_table_2_2"
-              value="2020-01-01"
-            /><br /><br />
-            <input
-              type="text"
-              id="ipt_table_2_3"
-              value="2020-01-05"
-            /><br /><br />
-            <button id="btn_table_2" class="btn btn-primary" >Click me</button>
-            <script>
-              document.getElementById("btn_table_2").onclick = function () {
-                var url =
-                  "http://localhost/comp353_main_project/api/post/read_2.php?" +
-                  "Did=" +
-                  document.getElementById("ipt_table_2_1").value +
-                  "&d1=" +
-                  document.getElementById("ipt_table_2_2").value +
-                  "&d2=" +
-                  document.getElementById("ipt_table_2_3").value;
-                call_api("GET", url, "table_2");
-              };
-            </script>
-          </div>
-        </div>
-
-        <div id="item-2-3" class="pt-5">
-          <div id="table_3">
-            <h3>read_3</h3>
-            <p>
-              c. Get details of all appointments at a given clinic on a specific
-              date.
-            </p>
-            <input
-              type="text"
-              id="ipt_table_3_1"
-              value="clinic_1"
-            /><br /><br />
-            <input
-              type="text"
-              id="ipt_table_3_2"
-              value="2020-01-01"
-            /><br /><br />
-            <button id="btn_table_3" class="btn btn-primary">Click me</button>
-            <script>
-              document.getElementById("btn_table_3").onclick = function () {
-                var url =
-                  "http://localhost/comp353_main_project/api/post/read_3.php?" +
-                  "clinic=" +
-                  document.getElementById("ipt_table_3_1").value +
-                  "&date=" +
-                  document.getElementById("ipt_table_3_2").value;
-                call_api("GET", url, "table_3");
-              };
-            </script>
-          </div>
-        </div>
-
-        <div id="item-2-4" class="pt-5">
-          <div id="table_4">
-            <h3>read_4</h3>
-            <p>d. Get details of all appointments of a given patient.</p>
-            <input
-              type="text"
-              id="ipt_table_4_1"
-              value="123456789"
-            /><br /><br />
-            <button id="btn_table_4" class="btn btn-primary">Click me</button>
-            <script>
-              document.getElementById("btn_table_4").onclick = function () {
-                var url =
-                  "http://localhost/comp353_main_project/api/post/read_4.php?" +
-                  "sin=" +
-                  document.getElementById("ipt_table_4_1").value;
-                call_api("GET", url, "table_4");
-              };
-            </script>
-          </div>
-        </div>
-
-        <div id="item-2-5" class="pt-5">
-          <div id="table_5">
-            <h3>read_5</h3>
-            <p>
-              e. Get the number of missed appointments for each patient (only
-              for patients who have missed at least 1 appointment).
-            </p>
-            <button class="btn btn-primary"
-              onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_5.php', 'table_5')"
-            >
-              Click me
-            </button>
-          </div>
-        </div>
-
-        <div id="item-2-6" class="pt-5">
-          <div id="table_6">
-            <h3>read_6</h3>
-            <p> f. Get details of all the treatments made during a given appointment. </p>
-            <h4>See all appointement:</h4>
-            <div id="table_6_appointment"> 
-              <button class="btn btn-primary"
-                onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_6_appointment')"
+        <!-- END OF TESTING AREA -->
+          <div id="item-2-1" class="pt-5">
+            <div id="table_1">
+              <h3>read_1</h3>
+              <p>a. Get details of all dentists in all the clinics.</p>
+              <button
+                class="btn btn-primary"
+                onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_1.php', 'table_1')"
               >
-                See appointment
+                 >
               </button>
             </div>
-            <label
-              >Appointement ID:
-              <input type="text" id="ipt_table_6_1" value="2" /></label
-            ><br /><br />
-            <button id="btn_table_6" class="btn btn-primary">Click me</button>
-            <script>
-              document.getElementById("btn_table_6").onclick = function () {
-                var url =
-                  "http://localhost/comp353_main_project/api/post/read_6.php?" +
-                  "Aid=" +
-                  document.getElementById("ipt_table_6_1").value;
-                call_api("GET", url, "table_6");
-              };
-            </script>
           </div>
+          
+          
+          <div id="item-2-2" class="pt-5">
+            <div id="table_2">
+              <h3>read_2</h3>
+              <p>
+                b. Get details of all appointments for a given dentist for a
+                specific week.
+              </p>
+            <div class="input-group  mb-3">
+                <div class="input-group-prepend"> <span class="input-group-text" >Doctor ID</span> </div>
+                <input type="text" class="form-control" id="ipt_table_2_1" value="1" />
+            </div>
+ 
+
+            <div class="input-group  mb-3">
+                <div class="input-group-prepend"> <span class="input-group-text" >From date</span> </div>
+                <input type="text" class="form-control"  id="ipt_table_2_2"  value="2020-01-01"  />
+            </div>
+            <div class="input-group  mb-3">
+                <div class="input-group-prepend"> <span class="input-group-text" >To date</span> </div>
+                <input  type="text" class="form-control" id="ipt_table_2_3"  value="2020-01-05" />
+            </div>
+
+              <button id="btn_table_2" class="btn btn-primary"> ></button>
+              <script>
+                document.getElementById("btn_table_2").onclick = function () {
+                  var url =
+                    "http://localhost/comp353_main_project/api/post/read_2.php?" +
+                    "Did=" +
+                    document.getElementById("ipt_table_2_1").value +
+                    "&d1=" +
+                    document.getElementById("ipt_table_2_2").value +
+                    "&d2=" +
+                    document.getElementById("ipt_table_2_3").value;
+                  call_api("GET", url, "table_2");
+                };
+              </script>
+            </div>
+          </div>
+
+        
+          
+          <div id="item-2-3" class="pt-5">
+            <div id="table_3">
+              <h3>read_3</h3>
+              <p>
+                c. Get details of all appointments at a given clinic on a
+                specific date.
+              </p>
+
+              <div class="input-group  mb-3">
+                <div class="input-group-prepend"> <span class="input-group-text" >Clinic name</span> </div>
+                <input  type="text" class="form-control" id="ipt_table_3_1" value="clinic_1" />
+            </div>
+
+            <div class="input-group  mb-3">
+                <div class="input-group-prepend"> <span class="input-group-text" >Date</span> </div>
+                <input  type="text" class="form-control" id="ipt_table_3_2" value="2020-01-01"/>
+            </div>
+  
+              <button id="btn_table_3" class="btn btn-primary"> ></button>
+              <script>
+                document.getElementById("btn_table_3").onclick = function () {
+                  var url =
+                    "http://localhost/comp353_main_project/api/post/read_3.php?" +
+                    "clinic=" +
+                    document.getElementById("ipt_table_3_1").value +
+                    "&date=" +
+                    document.getElementById("ipt_table_3_2").value;
+                  call_api("GET", url, "table_3");
+                };
+              </script>
+            </div>
+          </div>
+           
+          <div id="item-2-4" class="pt-5">
+            <div id="table_4">
+              <h3>read_4</h3>
+              <p>d. Get details of all appointments of a given patient.</p>
+              <div class="input-group  mb-3">
+                <div class="input-group-prepend"> <span class="input-group-text" >Patient SIN</span> </div>
+                <input  type="text" class="form-control" id="ipt_table_4_1" value="123456789"/>
+               </div>
+ 
+              <button id="btn_table_4" class="btn btn-primary"> > </button>
+              <script>
+                document.getElementById("btn_table_4").onclick = function () {
+                  var url =
+                    "http://localhost/comp353_main_project/api/post/read_4.php?" +
+                    "sin=" +
+                    document.getElementById("ipt_table_4_1").value;
+                  call_api("GET", url, "table_4");
+                };
+              </script>
+            </div>
+          </div>
+           
+          <div id="item-2-5" class="pt-5">
+            <div id="table_5">
+              <h3>read_5</h3>
+              <p>
+                e. Get the number of missed appointments for each patient (only
+                for patients who have missed at least 1 appointment).
+              </p>
+              <button
+                class="btn btn-primary"
+                onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_5.php', 'table_5')"
+              >
+                 >
+              </button>
+            </div>
+          </div>
+           
+          <div id="item-2-6" class="pt-5">
+            <div id="table_6">
+              <h3>read_6</h3>
+              <p>
+                f. Get details of all the treatments made during a given
+                appointment.
+              </p>
+              <h4>See all appointement:</h4>
+              <div id="table_6_appointment">
+                <button
+                  class="btn btn-primary"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_6_appointment')"
+                >
+                  See appointment
+                </button>
+              </div>
+              <br/>
+               
+                <div class="input-group  mb-3">
+                    <div class="input-group-prepend"> <span class="input-group-text" >Appointement ID</span> </div>
+                    <input  type="text" class="form-control" id="ipt_table_6_1" value="2" />
+                   </div> 
+              <button id="btn_table_6" class="btn btn-primary"> ></button>
+              <script>
+                document.getElementById("btn_table_6").onclick = function () {
+                  var url =
+                    "http://localhost/comp353_main_project/api/post/read_6.php?" +
+                    "Aid=" +
+                    document.getElementById("ipt_table_6_1").value;
+                  call_api("GET", url, "table_6");
+                };
+              </script>
+            </div>
+          </div>
+           
+          <div id="item-2-7" class="pt-5">
+            <div id="table_7">
+              <h3>read_7</h3>
+              <p>g. Get details of all unpaid bills.</p>
+              <button
+                class="btn btn-primary"
+                onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_7.php', 'table_7')"
+              >
+                 >
+              </button>
+            </div>
+          </div>
+
+
+          
+
+          <div class="SELECT_ALL_SECTION">
+            <!-- appointment -->
+  
+            <div id="item-1-1" class="pt-5">
+              <div id="table_appointment">
+                <h3>select * from appointment</h3>
+                <button
+                  class="btn btn-primary"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')"
+                >
+                  See all appointment
+                </button>
+              </div>
+            </div>
+            <!-- belongs -->
+            <div id="item-1-2" class="pt-5">
+              <div id="table_belongs">
+                <h3>select * from belongs</h3>
+                <button
+                  class="btn btn-primary"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_belongs.php', 'table_belongs')"
+                >
+                  See all belongs
+                </button>
+              </div>
+            </div>
+            <!-- bill -->
+            <div id="item-1-3" class="pt-5">
+              <div id="table_bill">
+                <h3>select * from bill</h3>
+                <button
+                  class="btn btn-primary"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_bill.php', 'table_bill')"
+                >
+                  See all bill
+                </button>
+              </div>
+            </div>
+            <!-- clinic -->
+            <div id="item-1-4" class="pt-5">
+              <div id="table_clinic">
+                <h3>select * from clinic</h3>
+                <button
+                  class="btn btn-primary"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_clinic.php', 'table_clinic')"
+                >
+                  See all clinic
+                </button>
+              </div>
+            </div>
+            <!-- dental_assistant -->
+            <div id="item-1-5" class="pt-5">
+              <div id="table_dental_assistant">
+                <h3>select * from dental_assistant</h3>
+                <button
+                  class="btn btn-primary"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_dental_assistant.php', 'table_dental_assistant')"
+                >
+                  See all dental_assistant
+                </button>
+              </div>
+            </div>
+            <!-- dentist -->
+            <div id="item-1-6" class="pt-5">
+              <div id="table_dentist">
+                <h3>select * from dentist</h3>
+                <button
+                  class="btn btn-primary"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_dentist.php', 'table_dentist')"
+                >
+                  See all dentist
+                </button>
+              </div>
+            </div>
+            <!-- include -->
+            <div id="item-1-7" class="pt-5">
+              <div id="table_include">
+                <h3>select * from include</h3>
+                <button
+                  class="btn btn-primary"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_include.php', 'table_include')"
+                >
+                  See all include
+                </button>
+              </div>
+            </div>
+            <!-- patient -->
+            <div id="item-1-8" class="pt-5">
+              <div id="table_patient">
+                <h3>select * from patient</h3>
+                <button
+                  class="btn btn-primary"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_patient.php', 'table_patient')"
+                >
+                  See all patient
+                </button>
+              </div>
+            </div>
+            <!-- receptionist -->
+            <div id="item-1-9" class="pt-5">
+              <div id="table_receptionist">
+                <h3>select * from receptionist</h3>
+                <button
+                  class="btn btn-primary"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_receptionist.php', 'table_receptionist')"
+                >
+                  See all receptionist
+                </button>
+              </div>
+            </div>
+  
+            <!-- treatment -->
+            <div id="item-1-10" class="pt-5">
+              <div id="table_treatment">
+                <h3>select * from treatment</h3>
+                <button
+                  class="btn btn-primary"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_treatment.php', 'table_treatment')"
+                >
+                  See all treatment
+                </button>
+              </div>
+            </div>
+            <!-- END OF SELECT * SECTION -->
         </div>
 
-        <div id="item-2-7" class="pt-5">
-          <div id="table_7">
-            <h3>read_7</h3>
-            <p>g. Get details of all unpaid bills.</p>
-            <button class="btn btn-primary"
-              onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_7.php', 'table_7')"
-            >
-              Click me
-            </button>
-          </div>
-        </div>
-        <div id="table_my_query">
-          <h3>read_4</h3>
-          <p>d. Get details of all appointments of a given patient.</p>
-          <input type="text" id="ipt_table_4_1" value="123456789" /><br /><br />
-          <button id="btn_table_4">Click me</button>
-          <script>
-            document.getElementById("btn_table_4").onclick = function () {
-              var url =
-                "http://localhost/comp353_main_project/api/post/read_4.php?" +
-                "sin=" +
-                document.getElementById("ipt_table_4_1").value;
-              call_api("GET", url, "table_4");
-            };
-          </script>
-        </div>
+        
+
       </div>
     </div>
 
