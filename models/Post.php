@@ -22,6 +22,8 @@
 
         public $BelongId;
 
+        public $DAid;
+
         // Constructor with DB
         public function __construct($db){
             $this->conn = $db;
@@ -160,15 +162,70 @@
         public function read_appointment(){
             $query =  'SELECT * from appointment';
             $stmt = $this->conn->prepare($query); 
-            $stmt->execute();  
+            $stmt->execute();   
+            return $stmt;
+        }
 
-            // $output = $query;
-            // if (is_array($output))
-            //     $output = implode(',', $output);
-            // echo "\n================PHP===============\n";
-            // echo "PHP => " . $output  . "\n";
-            // echo "^^^^^^^^^^^^^^^^PHP^^^^^^^^^^^^^^^\n\n";
+        public function read_belongs(){
+            $query =  'SELECT * from belongs';
+            $stmt = $this->conn->prepare($query); 
+            $stmt->execute();   
+            return $stmt;
+        }
 
+        public function read_bill(){
+            $query =  'SELECT * from bill';
+            $stmt = $this->conn->prepare($query); 
+            $stmt->execute();   
+            return $stmt;
+        }
+
+        public function read_clinic(){
+            $query =  'SELECT * from clinic';
+            $stmt = $this->conn->prepare($query); 
+            $stmt->execute();   
+            return $stmt;
+        }
+
+        public function read_dental_assistant(){
+            $query =  'SELECT * from dental_assistant';
+            $stmt = $this->conn->prepare($query); 
+            $stmt->execute();   
+            return $stmt;
+        }
+
+        public function read_dentist(){
+            $query =  'SELECT * from dentist';
+            $stmt = $this->conn->prepare($query); 
+            $stmt->execute();   
+            return $stmt;
+        }
+
+        public function read_include(){
+            $query =  'SELECT * from include';
+            $stmt = $this->conn->prepare($query); 
+            $stmt->execute();   
+            return $stmt;
+        }
+
+        public function read_patient(){
+            $query =  'SELECT * from patient';
+            $stmt = $this->conn->prepare($query); 
+            $stmt->execute();   
+            return $stmt;
+        }
+
+        public function read_receptionist(){
+            $query =  'SELECT * from receptionist';
+            $stmt = $this->conn->prepare($query); 
+            $stmt->execute();   
+            return $stmt;
+        }
+
+        public function read_treatment(){
+            $query =  'SELECT * from treatment';
+            $stmt = $this->conn->prepare($query); 
+            $stmt->execute();   
             return $stmt;
         }
  
