@@ -299,20 +299,25 @@
                 <h3>Schedule a appointment</h3> 
                 <p>NOT FINISH</p>
                 <div class="input-group  mb-3">
-                    <div class="input-group-prepend"> <span class="input-group-text" >SIN</span> </div>
+                    <div class="input-group-prepend"> <span class="input-group-text" >Aid</span> </div>
                     <input  type="text" class="form-control" id="ipt_table_+1_1"/>
                 </div>
                 <div class="input-group  mb-3">
-                    <div class="input-group-prepend"> <span class="input-group-text" >Did</span> </div>
+                    <div class="input-group-prepend"> <span class="input-group-text" >Sin</span> </div>
                     <input  type="text" class="form-control" id="ipt_table_+1_2"/>
                 </div> 
+                <div class="input-group  mb-3">
+                  <div class="input-group-prepend"> <span class="input-group-text" >date</span> </div>
+                  <input  type="date" class="form-control" id="ipt_table_+1_3"/>
+              </div> 
                 <button id="btn_table_+2" class="btn btn-primary"> > </button>
                 <script>
                     document.getElementById("btn_table_+2").onclick = function () {
-                    var url = "http://localhost/comp353_main_project/api/post/create_appointement.php?" +
-                        "Pname=" + document.getElementById("ipt_table_+1_1").value +
-                        "&SIN=" + document.getElementById("ipt_table_+1_2").value;
-                    call_api("GET", url, "table_+2");
+                    var url = "http://localhost/comp353_main_project/api/post/add_appointment.php?" +
+                        "Aid=" + document.getElementById("ipt_table_+1_1").value +
+                        "&Sin=" + document.getElementById("ipt_table_+1_2").value +
+                        "&date=" + document.getElementById("ipt_table_+1_3").value;
+                        call_api("GET", url, "table_+2");
                     };
                 </script>
                 </div>
@@ -423,6 +428,25 @@
 
 
 
+ <!-- 44 user query -->
+          <div id="item-7" class="pt-5">
+                <div id="table_query">
+                <h3>User query</h3> 
+                <p>NOT FINISH</p>
+                <div class="input-group  mb-3">
+                    <div class="input-group-prepend"> <span class="input-group-text" >query</span> </div>
+                    <textarea  class="form-control" id="ipt_table_query"></textarea>
+                </div>
+                
+                <button id="btn_table_query" class="btn btn-primary"> > </button>
+                <script>
+                    document.getElementById("btn_table_query").onclick = function () {
+                    var url = "http://localhost/comp353_main_project/api/post/user_query.php?" +
+                        "query=" + document.getElementById("ipt_table_query").value;
+                        call_api("GET", url, "table_query");
+                    };
+                </script>
+                </div>
             </div>
 
 

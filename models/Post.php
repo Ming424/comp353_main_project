@@ -277,6 +277,65 @@
             return false;
         }
 
+        public function check_patient_exist($key){
+            $query =  'SELECT *   
+                       FROM  patient
+                       where Sin = \'' .$key . '\''; 
+
+            $stmt = $this->conn->prepare($query); 
+            $stmt->execute();   
+            
+            $num_of_row = $stmt->rowCount();
+
+            printf($num_of_row);
+
+            if($num_of_row = 0)
+                return false;
+            else
+                return true;
+    
+        }
+
+        public function add_appointment($Aid, $Sin, $date){
+            $patient_exist = $this->check_patient_exist($Sin);
+
+            
+
+            if($pateint_exist = false)
+                return false;
+            else{
+
+                $query = 'INSERT INTO appointment(Aid, Sin, date, miss) 
+                VALUE (\'' .$Aid . '\',\'' . $Sin . '\',\'' . $date . '\', 1 )'; 
+               ;
+               
+
+                $stmt = $this->conn->prepare($query); 
+
+                if($stmt->execute()) {
+                    return true;
+                } 
+                printf("Error: $s.\n", $stmt->error);
+                return false;
+            }
+        }
+
+
+        public function user_query($query){
+            
+            $stmt = $this->conn->prepare($query); 
+            
+            if($stmt->execute()) {
+                return true;
+            } 
+            printf("Error: $s.\n", $stmt->error);
+            return false;
+            
+        }
+
+
+        
+
 
  
 

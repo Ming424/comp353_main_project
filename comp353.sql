@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2020 at 02:33 AM
+-- Generation Time: Apr 12, 2020 at 11:08 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.28
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,10 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `appointment` (
   `Aid` int(4) NOT NULL,
-  `Sin` int(4) NOT NULL,
-  `Did` int(4) NOT NULL,
-  `Rid` int(4) NOT NULL,
-  `Bid` int(4) NOT NULL,
+  `Sin` int(9) NOT NULL,
+  `Did` int(4) DEFAULT NULL,
+  `Rid` int(4) DEFAULT NULL,
+  `Bid` int(4) DEFAULT NULL,
   `miss` tinyint(1) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -304,7 +303,7 @@ ALTER TABLE `treatment`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `Aid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Aid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `belongs`
@@ -366,7 +365,7 @@ ALTER TABLE `belongs`
 -- Constraints for table `include`
 --
 ALTER TABLE `include`
-  ADD CONSTRAINT `Tname` FOREIGN KEY (`Tname`) REFERENCES `treatment` (`TName`),
+  ADD CONSTRAINT `Tname` FOREIGN KEY (`Tname`) REFERENCES `treatment` (`Tname`),
   ADD CONSTRAINT `include_ibfk_1` FOREIGN KEY (`Bid`) REFERENCES `bill` (`Bid`);
 COMMIT;
 
