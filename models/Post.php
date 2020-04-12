@@ -24,6 +24,8 @@
 
         public $DAid;
 
+        public $user_query;
+
         // Constructor with DB
         public function __construct($db){
             $this->conn = $db;
@@ -287,9 +289,9 @@
             
             $num_of_row = $stmt->rowCount();
 
-            printf($num_of_row);
+            //printf($num_of_row);
 
-            if($num_of_row = 0)
+            if($num_of_row == 0)
                 return false;
             else
                 return true;
@@ -297,11 +299,12 @@
         }
 
         public function add_appointment($Aid, $Sin, $date){
+
             $patient_exist = $this->check_patient_exist($Sin);
 
             
 
-            if($pateint_exist = false)
+            if($patient_exist == false)
                 return false;
             else{
 

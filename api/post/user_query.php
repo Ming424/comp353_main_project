@@ -22,10 +22,10 @@ function debug_to_console($data){
 
   $post = new Post($db); 
 
-  $query = isset($_GET['query']) ? $_GET['query'] : die();
+  $post->user_query = isset($_GET['query']) ? $_GET['query'] : die();
 
 
-  if($post->user_query($query)) {
+  if($post->user_query($post->user_query)) {
     echo json_encode(
       array('message' => 'Category Updated')
     );
