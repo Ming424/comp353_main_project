@@ -128,7 +128,7 @@
         }
 
         public function read_6($Aid){
-            $query = 'SELECT appointment.Bid, treatment.Tname, treatment.fee 
+            $query = 'SELECT appointment.Bid, treatment.Tname, treatment.fee, treatment.excutor 
             from appointment, include, treatment
             where Aid = \'' . $Aid . '\' AND 
                     appointment.Bid = include.Bid AND 
@@ -275,9 +275,10 @@
             if($stmt->execute()) {
                 return true;
             }
-            printf("Error: $s.\n", $stmt->error);
+            //printf("Error: $s.\n", $stmt->error);
             return false;
         }
+
 
         public function check_patient_exist($key){
             $query =  'SELECT *   
@@ -298,7 +299,7 @@
     
         }
 
-        public function add_appointment($Aid, $Sin, $date){
+        public function add_appointment($Did, $Sin, $date){
 
             $patient_exist = $this->check_patient_exist($Sin);
 
@@ -308,8 +309,8 @@
                 return false;
             else{
 
-                $query = 'INSERT INTO appointment(Aid, Sin, date, miss) 
-                VALUE (\'' .$Aid . '\',\'' . $Sin . '\',\'' . $date . '\', 1 )'; 
+                $query = 'INSERT INTO appointment(Did, Sin, date, miss, Rid, Bid) 
+                VALUE (\'' .$Did . '\',\'' . $Sin . '\',\'' . $date . '\', 1,1,1 )'; 
                ;
                
 
@@ -318,7 +319,7 @@
                 if($stmt->execute()) {
                     return true;
                 } 
-                printf("Error: $s.\n", $stmt->error);
+                //printf("Error: $s.\n", $stmt->error);
                 return false;
             }
         }
@@ -331,7 +332,7 @@
             if($stmt->execute()) {
                 return true;
             } 
-            printf("Error: $s.\n", $stmt->error);
+            //printf("Error: $s.\n", $stmt->error);
             return false;
             
         }

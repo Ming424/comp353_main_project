@@ -22,17 +22,17 @@ function debug_to_console($data){
 
   $post = new Post($db); 
 
-  $post->Aid = isset($_GET['Aid']) ? $_GET['Aid'] : die();
+  $post->Did = isset($_GET['Did']) ? $_GET['Did'] : die();
   $post->Sin = isset($_GET['Sin']) ? $_GET['Sin'] : die();
   $post->date = isset($_GET['date']) ? $_GET['date'] : die();
 
-  if($post->add_appointment( $post->Aid, $post->Sin, $post->date )) {
+  if($post->add_appointment( $post->Did, $post->Sin, $post->date )) {
     echo json_encode(
       array('message' => 'Category Updated')
     );
   } else {
     echo json_encode(
-      array('message' => 'patient does not exist or Aid has exist')
+      array('message' => 'patient does not exist')
     );
   }
 

@@ -298,8 +298,14 @@
                 <div id="table_+2">
                 <h3>Schedule a appointment</h3> 
                 <p>NOT FINISH</p>
+                <div id="table_add_1_appointment">
+                  <button class="btn btn-outline-warning" 
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_add_1_appointment')"
+              >
+                1. See all appointment </button>
+              </div><br/>
                 <div class="input-group  mb-3">
-                    <div class="input-group-prepend"> <span class="input-group-text" >Aid</span> </div>
+                    <div class="input-group-prepend"> <span class="input-group-text" >Did</span> </div>
                     <input  type="text" class="form-control" id="ipt_table_+1_1"/>
                 </div>
                 <div class="input-group  mb-3">
@@ -314,7 +320,7 @@
                 <script>
                     document.getElementById("btn_table_+2").onclick = function () {
                     var url = "http://localhost/comp353_main_project/api/post/add_appointment.php?" +
-                        "Aid=" + document.getElementById("ipt_table_+1_1").value +
+                        "Did=" + document.getElementById("ipt_table_+1_1").value +
                         "&Sin=" + document.getElementById("ipt_table_+1_2").value +
                         "&date=" + document.getElementById("ipt_table_+1_3").value;
                         call_api("GET", url, "table_+2");
