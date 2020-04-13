@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2020 at 11:08 PM
+-- Generation Time: Apr 13, 2020 at 04:34 AM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.4
+-- PHP Version: 7.2.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -42,9 +43,11 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`Aid`, `Sin`, `Did`, `Rid`, `Bid`, `miss`, `date`) VALUES
-(2, 123456789, 1, 1, 1, 1, '2020-01-01'),
-(3, 987654321, 2, 2, 2, 1, '2020-01-05'),
-(4, 123456789, 2, 1, 3, 0, '2020-01-01');
+(10, 123456789, 1, 1, 1, 0, '2020-01-01'),
+(11, 987654321, 2, 2, 2, 0, '2020-01-02'),
+(12, 333333333, 3, 3, 3, 1, '2020-01-03'),
+(13, 444444444, 4, 4, 4, 1, '2020-01-04'),
+(14, 555555555, 7, 5, 5, 1, '2020-01-05');
 
 -- --------------------------------------------------------
 
@@ -63,9 +66,57 @@ CREATE TABLE `belongs` (
 --
 
 INSERT INTO `belongs` (`BelongId`, `Cname`, `Did`) VALUES
-(6, 'clinic_1', 1),
-(7, 'clinic_1', 2),
-(8, 'clinic_2', 1);
+(9, 'clinic_1', 1),
+(10, 'clinic_2', 2),
+(11, 'clinic_3', 3),
+(12, 'clinic_4', 4),
+(13, 'clinic_5', 7);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `belongs_da`
+--
+
+CREATE TABLE `belongs_da` (
+  `BelongId` int(11) NOT NULL,
+  `Cname` varchar(50) NOT NULL,
+  `DAid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `belongs_da`
+--
+
+INSERT INTO `belongs_da` (`BelongId`, `Cname`, `DAid`) VALUES
+(1, 'clinic_1', 1),
+(2, 'clinic_2', 2),
+(3, 'clinic_3', 3),
+(4, 'clinic_4', 4),
+(5, 'clinic_5', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `belongs_recep`
+--
+
+CREATE TABLE `belongs_recep` (
+  `BelongId` int(11) NOT NULL,
+  `Cname` varchar(50) NOT NULL,
+  `Rid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `belongs_recep`
+--
+
+INSERT INTO `belongs_recep` (`BelongId`, `Cname`, `Rid`) VALUES
+(1, 'clinic_1', 1),
+(2, 'clinic_2', 2),
+(3, 'clinic_3', 3),
+(4, 'clinic_4', 4),
+(5, 'clinic_5', 5);
 
 -- --------------------------------------------------------
 
@@ -85,7 +136,9 @@ CREATE TABLE `bill` (
 INSERT INTO `bill` (`Bid`, `Paid`) VALUES
 (1, 0),
 (2, 0),
-(3, 1);
+(3, 1),
+(4, 0),
+(5, 0);
 
 -- --------------------------------------------------------
 
@@ -125,17 +178,10 @@ CREATE TABLE `dental_assistant` (
 
 INSERT INTO `dental_assistant` (`DAid`, `DAname`) VALUES
 (1, 'DA_1'),
-(2, 'DA_2');
-(3, 'DA_3');
-(4, 'DA_4');
+(2, 'DA_2'),
+(3, 'DA_3'),
+(4, 'DA_4'),
 (5, 'DA_5');
-(6, 'DA_6');
-(7, 'DA_7');
-(8, 'DA_8');
-(9, 'DA_9');
-(10, 'DA_10');
-(11, 'DA_11');
-(12, 'DA_12');
 
 -- --------------------------------------------------------
 
@@ -176,8 +222,16 @@ CREATE TABLE `include` (
 --
 
 INSERT INTO `include` (`IncludeId`, `Tname`, `Bid`) VALUES
-(1, 'cut_hair', 1),
-(2, 'drink_hot_water', 1);
+(1, 'braces', 1),
+(2, 'examination', 1),
+(3, 'extractions', 1),
+(4, 'fillings_and_repairs', 1),
+(5, 'root_canals', 1),
+(6, 'teeth_cleaning', 1),
+(7, 'teeth_whitening', 1),
+(8, 'examination', 2),
+(9, 'extractions', 3),
+(10, 'fillings_and_repairs', 1);
 
 -- --------------------------------------------------------
 
@@ -196,6 +250,9 @@ CREATE TABLE `patient` (
 
 INSERT INTO `patient` (`Pname`, `Sin`) VALUES
 ('patient_1', 123456789),
+('patient_3', 333333333),
+('patient_4', 444444444),
+('patient_5', 555555555),
 ('patient_2', 987654321);
 
 -- --------------------------------------------------------
@@ -207,20 +264,18 @@ INSERT INTO `patient` (`Pname`, `Sin`) VALUES
 CREATE TABLE `receptionist` (
   `Rid` int(4) NOT NULL,
   `Rname` varchar(50) NOT NULL
-  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `receptionist`
 --
 
-INSERT INTO `receptionist` (`Rid`, `Rname`,'Cname') VALUES
-(1, 'recept_1', 'clinic_1'),
-(2, 'recept_2', 'clinic_1'),
-(1, 'recept_1', 'clinic_2'),
-(2, 'recept_2', 'clinic_2'),
-(1, 'recept_1', 'clinic_3'),
-(1, 'recept_1', 'clinic_4'),;
+INSERT INTO `receptionist` (`Rid`, `Rname`) VALUES
+(1, 'recep_1'),
+(2, 'recep_2'),
+(3, 'recep_3'),
+(4, 'recep_4'),
+(5, 'recep_5');
 
 -- --------------------------------------------------------
 
@@ -238,13 +293,13 @@ CREATE TABLE `treatment` (
 --
 
 INSERT INTO `treatment` (`Tname`, `fee`) VALUES
-('extractions', 80),
-('root_canals', 120),
+('braces', 7000),
 ('examination', 30),
-('teeth_whitening', 75),
-('teeth_cleaning', 65),
+('extractions', 80),
 ('fillings_and_repairs', 30),
-('braces', 7000);
+('root_canals', 120),
+('teeth_cleaning', 65),
+('teeth_whitening', 75);
 
 --
 -- Indexes for dumped tables
@@ -267,6 +322,22 @@ ALTER TABLE `belongs`
   ADD PRIMARY KEY (`BelongId`),
   ADD KEY `Cname` (`Cname`),
   ADD KEY `Did` (`Did`);
+
+--
+-- Indexes for table `belongs_da`
+--
+ALTER TABLE `belongs_da`
+  ADD PRIMARY KEY (`BelongId`),
+  ADD KEY `Cname` (`Cname`),
+  ADD KEY `DAid` (`DAid`);
+
+--
+-- Indexes for table `belongs_recep`
+--
+ALTER TABLE `belongs_recep`
+  ADD PRIMARY KEY (`BelongId`),
+  ADD KEY `Cname` (`Cname`),
+  ADD KEY `Rid` (`Rid`);
 
 --
 -- Indexes for table `bill`
@@ -326,25 +397,37 @@ ALTER TABLE `treatment`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `Aid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `Aid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `belongs`
 --
 ALTER TABLE `belongs`
-  MODIFY `BelongId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `BelongId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `belongs_da`
+--
+ALTER TABLE `belongs_da`
+  MODIFY `BelongId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `belongs_recep`
+--
+ALTER TABLE `belongs_recep`
+  MODIFY `BelongId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `Bid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Bid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `dental_assistant`
 --
 ALTER TABLE `dental_assistant`
-  MODIFY `DAid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `DAid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `dentist`
@@ -356,13 +439,13 @@ ALTER TABLE `dentist`
 -- AUTO_INCREMENT for table `include`
 --
 ALTER TABLE `include`
-  MODIFY `IncludeId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `IncludeId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `receptionist`
 --
 ALTER TABLE `receptionist`
-  MODIFY `Rid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Rid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -372,24 +455,38 @@ ALTER TABLE `receptionist`
 -- Constraints for table `appointment`
 --
 ALTER TABLE `appointment`
+  ADD CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`Bid`) REFERENCES `bill` (`Bid`),
   ADD CONSTRAINT `appointment_ibfk_2` FOREIGN KEY (`Did`) REFERENCES `dentist` (`Did`),
   ADD CONSTRAINT `appointment_ibfk_3` FOREIGN KEY (`Rid`) REFERENCES `receptionist` (`Rid`),
-  ADD CONSTRAINT `appointment_ibfk_4` FOREIGN KEY (`Sin`) REFERENCES `patient` (`Sin`),
-  ADD CONSTRAINT `appointment_ibfk_5` FOREIGN KEY (`Bid`) REFERENCES `bill` (`Bid`);
+  ADD CONSTRAINT `appointment_ibfk_4` FOREIGN KEY (`Sin`) REFERENCES `patient` (`Sin`);
 
 --
 -- Constraints for table `belongs`
 --
 ALTER TABLE `belongs`
-  ADD CONSTRAINT `Cname` FOREIGN KEY (`Cname`) REFERENCES `clinic` (`Cname`),
-  ADD CONSTRAINT `Did` FOREIGN KEY (`Did`) REFERENCES `dentist` (`Did`);
+  ADD CONSTRAINT `belongs_ibfk_1` FOREIGN KEY (`Cname`) REFERENCES `clinic` (`Cname`),
+  ADD CONSTRAINT `belongs_ibfk_2` FOREIGN KEY (`Did`) REFERENCES `dentist` (`Did`);
+
+--
+-- Constraints for table `belongs_da`
+--
+ALTER TABLE `belongs_da`
+  ADD CONSTRAINT `belongs_da_ibfk_1` FOREIGN KEY (`Cname`) REFERENCES `clinic` (`Cname`),
+  ADD CONSTRAINT `belongs_da_ibfk_2` FOREIGN KEY (`DAid`) REFERENCES `dental_assistant` (`DAid`);
+
+--
+-- Constraints for table `belongs_recep`
+--
+ALTER TABLE `belongs_recep`
+  ADD CONSTRAINT `belongs_recep_ibfk_1` FOREIGN KEY (`Cname`) REFERENCES `clinic` (`Cname`),
+  ADD CONSTRAINT `belongs_recep_ibfk_2` FOREIGN KEY (`Rid`) REFERENCES `receptionist` (`Rid`);
 
 --
 -- Constraints for table `include`
 --
 ALTER TABLE `include`
-  ADD CONSTRAINT `Tname` FOREIGN KEY (`Tname`) REFERENCES `treatment` (`Tname`),
-  ADD CONSTRAINT `include_ibfk_1` FOREIGN KEY (`Bid`) REFERENCES `bill` (`Bid`);
+  ADD CONSTRAINT `include_ibfk_1` FOREIGN KEY (`Bid`) REFERENCES `bill` (`Bid`),
+  ADD CONSTRAINT `include_ibfk_2` FOREIGN KEY (`Tname`) REFERENCES `treatment` (`Tname`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
