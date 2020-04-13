@@ -103,7 +103,10 @@ CREATE TABLE `clinic` (
 
 INSERT INTO `clinic` (`Cname`) VALUES
 ('clinic_1'),
-('clinic_2');
+('clinic_2'),
+('clinic_3'),
+('clinic_4'),
+('clinic_5');
 
 -- --------------------------------------------------------
 
@@ -123,6 +126,16 @@ CREATE TABLE `dental_assistant` (
 INSERT INTO `dental_assistant` (`DAid`, `DAname`) VALUES
 (1, 'DA_1'),
 (2, 'DA_2');
+(3, 'DA_3');
+(4, 'DA_4');
+(5, 'DA_5');
+(6, 'DA_6');
+(7, 'DA_7');
+(8, 'DA_8');
+(9, 'DA_9');
+(10, 'DA_10');
+(11, 'DA_11');
+(12, 'DA_12');
 
 -- --------------------------------------------------------
 
@@ -194,15 +207,20 @@ INSERT INTO `patient` (`Pname`, `Sin`) VALUES
 CREATE TABLE `receptionist` (
   `Rid` int(4) NOT NULL,
   `Rname` varchar(50) NOT NULL
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `receptionist`
 --
 
-INSERT INTO `receptionist` (`Rid`, `Rname`) VALUES
-(1, 'recept_1'),
-(2, 'recept_2');
+INSERT INTO `receptionist` (`Rid`, `Rname`,'Cname') VALUES
+(1, 'recept_1', 'clinic_1'),
+(2, 'recept_2', 'clinic_1'),
+(1, 'recept_1', 'clinic_2'),
+(2, 'recept_2', 'clinic_2'),
+(1, 'recept_1', 'clinic_3'),
+(1, 'recept_1', 'clinic_4'),;
 
 -- --------------------------------------------------------
 
@@ -220,8 +238,13 @@ CREATE TABLE `treatment` (
 --
 
 INSERT INTO `treatment` (`Tname`, `fee`) VALUES
-('cut_hair', 50),
-('drink_hot_water', 10);
+('extractions', 80),
+('root_canals', 120),
+('examination', 30),
+('teeth_whitening', 75),
+('teeth_cleaning', 65),
+('fillings_and_repairs', 30),
+('braces', 7000);
 
 --
 -- Indexes for dumped tables
