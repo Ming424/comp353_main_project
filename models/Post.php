@@ -40,7 +40,7 @@
         }
 
         public function read_2_temp(){
-            $query = 'select * from appointment where Did = 1 AND date >= \'2020-01-01\' AND date <= \'2020-01-05\'';
+            $query = 'SELECT * from appointment where Did = 1 AND date >= \'2020-01-01\' AND date <= \'2020-01-05\'';
             $stmt = $this->conn->prepare($query); 
             $stmt->bindParam(1, $this->Did);
 
@@ -140,7 +140,7 @@
         }
 
         public function read_7(){
-            $query = 'select bill.Bid, Sum(treatment.fee) as sum, Pname
+            $query = 'SELECT bill.Bid, Sum(treatment.fee) as sum, Pname
             from bill, include, treatment, appointment, patient
             where paid = 0 AND bill.Bid = include.Bid AND treatment.Tname = include.Tname AND bill.Bid = appointment.Bid AND appointment.SIN = patient.SIN
             group by Bid';
@@ -326,16 +326,13 @@
         }
 
 
-        public function user_query($query){
-            
-            $stmt = $this->conn->prepare($query); 
-            
+        public function user_query($query){ 
+            $stmt = $this->conn->prepare($query);  
             if($stmt->execute()) {
                 return true;
             } 
             //printf("Error: $s.\n", $stmt->error);
-            return false;
-            
+            return false; 
         }
 
         public function read_clinic_dentists($Cname){
