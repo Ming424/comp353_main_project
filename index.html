@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -57,6 +57,7 @@
         <a class="nav-link" href="#item-4">Schedule appointment</a>
         <a class="nav-link" href="#item-5">Modify appointment</a>
         <a class="nav-link" href="#item-6">Delete appointment</a>
+        <a class="nav-link" href="#item-6">User query</a>
       </nav>
 
       <div
@@ -279,7 +280,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend"> <span class="input-group-text" >SIN</span> </div>
-                    <input  type="text" class="form-control" id="ipt_table_11_2"/>
+                    <input  type="text" class="form-control" id="ipt_table_11_2" maxlength="9"/>
                 </div> 
                 <button id="btn_table_11" class="btn btn-info"> Add patient </button>
                 <script>
@@ -294,38 +295,77 @@
             </div>
 
 <!-- Schedule an appointment -->
-            <div id="item-4" class="pt-5">
-                <div id="table_+2">
-                <h3>Schedule a appointment</h3> 
-                <p>NOT FINISH</p>
-                <div id="table_add_1_appointment">
-                  <button class="btn btn-outline-warning" 
-                  onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_appointment.php', 'table_add_1_appointment')"
-              >
-                1. See all appointment </button>
-              </div><br/>
+            <div id="item-4" class="pt-5"> 
+                <h3>Schedule a appointment</h3>  
+                <div id="table_22">
+                    <button class="btn btn-outline-primary" 
+                        onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_clinic.php', 'table_22')"
+                    > 1. See all clinic </button>
+                </div><br/>
+                <div id="table_222">
+                    <div class="input-group  mb-3">
+                        <div class="input-group-prepend"> <span class="input-group-text" > 2. Select clinic</span> </div>
+                        <input  type="text" class="form-control" id="ipt_table_22_1" value="clinic_1"/>
+                    </div>
+                    <button class="btn btn-outline-primary" id="btn_table_22"> 3. See all doctor in this clinic </button>
+                    <script>
+                        document.getElementById("btn_table_22").onclick = function () {
+                        var url = "https://xvc353.encs.concordia.ca/api/post/read_clinic_dentists.php?" +
+                            "Cname=" + document.getElementById("ipt_table_22_1").value;
+                            call_api("GET", url, "table_222");
+                        };
+                    </script>
+                </div><br/>
+
+
                 <div class="input-group  mb-3">
-                    <div class="input-group-prepend"> <span class="input-group-text" >Did</span> </div>
-                    <input  type="text" class="form-control" id="ipt_table_+1_1"/>
-                </div>
-                <div class="input-group  mb-3">
-                    <div class="input-group-prepend"> <span class="input-group-text" >Sin</span> </div>
-                    <input  type="text" class="form-control" id="ipt_table_+1_2"/>
+                    <div class="input-group-prepend"> <span class="input-group-text" >5. Choose your dentist (Did)</span> </div>
+                    <input  type="text" class="form-control" id="ipt_table_222_1"/>
                 </div> 
                 <div class="input-group  mb-3">
-                  <div class="input-group-prepend"> <span class="input-group-text" >date</span> </div>
-                  <input  type="date" class="form-control" id="ipt_table_+1_3"/>
-              </div> 
-                <button id="btn_table_+2" class="btn btn-primary"> > </button>
-                <script>
-                    document.getElementById("btn_table_+2").onclick = function () {
-                    var url = "https://xvc353.encs.concordia.ca/api/post/add_appointment.php?" +
-                        "Did=" + document.getElementById("ipt_table_+1_1").value +
-                        "&Sin=" + document.getElementById("ipt_table_+1_2").value +
-                        "&date=" + document.getElementById("ipt_table_+1_3").value;
-                        call_api("GET", url, "table_+2");
-                    };
-                </script>
+                    <div class="input-group-prepend"> <span class="input-group-text"  >6. Your SIN number</span> </div>
+                    <input  type="text" class="form-control" id="ipt_table_222_2" maxlength="9" value="123456789"/>
+                </div> 
+                <div class="input-group  mb-3">
+                  <div class="input-group-prepend"> <span class="input-group-text" >7. Pick a date</span> </div>
+                  <input  type="date" class="form-control" id="ipt_table_222_3"/>
+                </div> 
+                <div id="table_333">
+                    <button id="btn_table_+2" class="btn btn-primary"> Make my appointment </button>
+                    <script>
+                        document.getElementById("btn_table_+2").onclick = function () {
+                          if(!document.getElementById("ipt_table_222_1").value){ 
+                            var url1 = "https://xvc353.encs.concordia.ca/api/post/read_clinic_null_dentist.php?" +
+                            "Cname=" + document.getElementById("ipt_table_22_1").value; 
+                            var dst = "table_333";
+                            var request1 = new XMLHttpRequest();
+                            request1.open('GET', url1, true);
+                            request1.onload = function () {
+                                var data = JSON.parse(this.response);   
+                                console.log("Autofill Did = " + data[0].Did);
+                                console.log(data[0].Did);
+                                document.getElementById("ipt_table_222_1").value = data[0].Did; 
+                            };
+                            request1.send(); 
+                          }
+                         
+                          console.log(document.getElementById("ipt_table_222_3").value );
+                          if(document.getElementById("ipt_table_222_3").value == ''){   console.log("WTD");
+                            var today = new Date();
+                            var dd = String(today.getDate()).padStart(2, '0');
+                            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                            var yyyy = today.getFullYear(); 
+                            today = yyyy+'-'+mm+'-'+dd; 
+                            console.log(today)
+                            document.getElementById("ipt_table_222_3").value = today;   
+                          } 
+                          var url = "https://xvc353.encs.concordia.ca/api/post/add_appointment.php?" +
+                              "Did=" + document.getElementById("ipt_table_222_1").value +
+                              "&Sin=" + document.getElementById("ipt_table_222_2").value +
+                              "&date=" + document.getElementById("ipt_table_222_3").value;
+                              call_api("GET", url, "table_333");
+                        };
+                    </script> 
                 </div>
             </div>
 <!-- 33 Modify an appointment -->
@@ -363,7 +403,7 @@
                     </div> 
                     <div class="input-group  mb-3">
                         <div class="input-group-prepend"> <span class="input-group-text" >Sin</span> </div>
-                        <input  type="text" class="form-control" id="ipt_table_33_3"/>
+                        <input  type="text" class="form-control" id="ipt_table_33_3" maxlength="9"/>
                     </div> 
                     <div class="input-group  mb-3">
                         <div class="input-group-prepend"> <span class="input-group-text" >Did</span> </div>
@@ -434,11 +474,10 @@
 
 
 
- <!-- 44 user query -->
+ <!-- 55 user query -->
           <div id="item-7" class="pt-5">
                 <div id="table_query">
-                <h3>User query</h3> 
-                <p>NOT FINISH</p>
+                <h3>User query</h3>  
                 <div class="input-group  mb-3">
                     <div class="input-group-prepend"> <span class="input-group-text" >query</span> </div>
                     <textarea  class="form-control" id="ipt_table_query"></textarea>
@@ -454,10 +493,7 @@
                 </script>
                 </div>
             </div>
-
-
-
-          
+ 
 
           <div class="SELECT_ALL_SECTION">
             <!-- appointment -->
