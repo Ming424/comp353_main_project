@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2020 at 04:34 AM
+-- Generation Time: Apr 13, 2020 at 05:53 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.28
 
@@ -47,7 +47,14 @@ INSERT INTO `appointment` (`Aid`, `Sin`, `Did`, `Rid`, `Bid`, `miss`, `date`) VA
 (11, 987654321, 2, 2, 2, 0, '2020-01-02'),
 (12, 333333333, 3, 3, 3, 1, '2020-01-03'),
 (13, 444444444, 4, 4, 4, 1, '2020-01-04'),
-(14, 555555555, 7, 5, 5, 1, '2020-01-05');
+(14, 555555555, 7, 5, 5, 1, '2020-01-05'),
+(16, 123456789, 1, 1, 1, 1, '2020-04-02'),
+(17, 123456789, 1, 1, 1, 1, '2020-04-02'),
+(18, 123456789, 1, 1, 1, 1, '2020-04-09'),
+(34, 123456789, 1, 1, 1, 1, '2020-04-06'),
+(36, 123456789, 1, 1, 1, 1, '2020-04-30'),
+(41, 123456789, 1, 1, 1, 1, '0000-00-00'),
+(49, 123456789, 1, 1, 1, 1, '2020-04-12');
 
 -- --------------------------------------------------------
 
@@ -70,7 +77,8 @@ INSERT INTO `belongs` (`BelongId`, `Cname`, `Did`) VALUES
 (10, 'clinic_2', 2),
 (11, 'clinic_3', 3),
 (12, 'clinic_4', 4),
-(13, 'clinic_5', 7);
+(13, 'clinic_5', 7),
+(14, 'clinic_1', 2);
 
 -- --------------------------------------------------------
 
@@ -253,6 +261,7 @@ INSERT INTO `patient` (`Pname`, `Sin`) VALUES
 ('patient_3', 333333333),
 ('patient_4', 444444444),
 ('patient_5', 555555555),
+('patient_6', 666666666),
 ('patient_2', 987654321);
 
 -- --------------------------------------------------------
@@ -397,13 +406,13 @@ ALTER TABLE `treatment`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `Aid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `Aid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `belongs`
 --
 ALTER TABLE `belongs`
-  MODIFY `BelongId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `BelongId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `belongs_da`
