@@ -337,6 +337,15 @@
             
         }
 
+        public function read_clinic_dentists($Cname){
+            $query =  'SELECT dentist.Did, dentist.Dname, Cname from dentist, belongs
+            WHERE belongs.Cname = \'' . $Cname . '\'
+            AND belongs.Did = dentist.Did';
+            $stmt = $this->conn->prepare($query); 
+            $stmt->execute();   
+            return $stmt;
+        }
+
 
         
 

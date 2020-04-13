@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -57,6 +57,7 @@
         <a class="nav-link" href="#item-4">Schedule appointment</a>
         <a class="nav-link" href="#item-5">Modify appointment</a>
         <a class="nav-link" href="#item-6">Delete appointment</a>
+        <a class="nav-link" href="#item-6">User query</a>
       </nav>
 
       <div
@@ -70,7 +71,7 @@
         <!-- TESTING AREA -->
           <!-- <div id="table_test"> 
             <h3>TEST UNIT</h3> 
-            <button class="btn btn-primary" onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read.php', 'table_test')"> ></button> 
+            <button class="btn btn-primary" onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read.php', 'table_test')"> ></button> 
         </div> 
         <div id="table_test_2"> 
             <h3>TEST UNIT 2</h3> 
@@ -79,7 +80,7 @@
             <script>
                 document.getElementById("btn_test_2").onclick = function() {f_test_2()};
                 function f_test_2() {
-                    var url = "https://xvc353.encs.concordia.ca/api/post/read_single.php?id="+document.getElementById("ipt_test_2").value;
+                    var url = "http://localhost/comp353_main_project/api/post/read_single.php?id="+document.getElementById("ipt_test_2").value;
                     call_api('GET',url, 'table_test_2');
                 } 
             </script>
@@ -91,7 +92,7 @@
               <p>a. Get details of all dentists in all the clinics.</p>
               <button
                 class="btn btn-primary"
-                onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_1.php', 'table_1')"
+                onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_1.php', 'table_1')"
               >
                  >
               </button>
@@ -125,7 +126,7 @@
               <script>
                 document.getElementById("btn_table_2").onclick = function () {
                   var url =
-                    "https://xvc353.encs.concordia.ca/api/post/read_2.php?" +
+                    "http://localhost/comp353_main_project/api/post/read_2.php?" +
                     "Did=" +
                     document.getElementById("ipt_table_2_1").value +
                     "&d1=" +
@@ -162,7 +163,7 @@
               <script>
                 document.getElementById("btn_table_3").onclick = function () {
                   var url =
-                    "https://xvc353.encs.concordia.ca/api/post/read_3.php?" +
+                    "http://localhost/comp353_main_project/api/post/read_3.php?" +
                     "clinic=" +
                     document.getElementById("ipt_table_3_1").value +
                     "&date=" +
@@ -186,7 +187,7 @@
               <script>
                 document.getElementById("btn_table_4").onclick = function () {
                   var url =
-                    "https://xvc353.encs.concordia.ca/api/post/read_4.php?" +
+                    "http://localhost/comp353_main_project/api/post/read_4.php?" +
                     "sin=" +
                     document.getElementById("ipt_table_4_1").value;
                   call_api("GET", url, "table_4");
@@ -204,7 +205,7 @@
               </p>
               <button
                 class="btn btn-primary"
-                onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_5.php', 'table_5')"
+                onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_5.php', 'table_5')"
               >
                  >
               </button>
@@ -222,7 +223,7 @@
               <div id="table_6_appointment">
                 <button
                   class="btn btn-primary"
-                  onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_appointment.php', 'table_6_appointment')"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_6_appointment')"
                 >
                   See appointment
                 </button>
@@ -237,7 +238,7 @@
               <script>
                 document.getElementById("btn_table_6").onclick = function () {
                   var url =
-                    "https://xvc353.encs.concordia.ca/api/post/read_6.php?" +
+                    "http://localhost/comp353_main_project/api/post/read_6.php?" +
                     "Aid=" +
                     document.getElementById("ipt_table_6_1").value;
                   call_api("GET", url, "table_6");
@@ -252,7 +253,7 @@
               <p>g. Get details of all unpaid bills.</p>
               <button
                 class="btn btn-primary"
-                onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_7.php', 'table_7')"
+                onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_7.php', 'table_7')"
               >
                  >
               </button>
@@ -269,7 +270,7 @@
                  <!-- See all patient -->
                  <div id="table_11_patient">
                     <button class="btn btn btn-outline-info" 
-                    onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_patient.php', 'table_11_patient')"
+                    onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_patient.php', 'table_11_patient')"
                 > See all patient </button>
                 </div><br/>
                 <!--  -->
@@ -279,12 +280,12 @@
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend"> <span class="input-group-text" >SIN</span> </div>
-                    <input  type="text" class="form-control" id="ipt_table_11_2"/>
+                    <input  type="text" class="form-control" id="ipt_table_11_2" maxlength="9"/>
                 </div> 
                 <button id="btn_table_11" class="btn btn-info"> Add patient </button>
                 <script>
                     document.getElementById("btn_table_11").onclick = function () {
-                    var url = "https://xvc353.encs.concordia.ca/api/post/add_patient.php?" +
+                    var url = "http://localhost/comp353_main_project/api/post/add_patient.php?" +
                         "Pname=" + document.getElementById("ipt_table_11_1").value +
                         "&Sin=" + document.getElementById("ipt_table_11_2").value;
                     call_api("GET", url, "table_11");
@@ -294,38 +295,52 @@
             </div>
 
 <!-- Schedule an appointment -->
-            <div id="item-4" class="pt-5">
-                <div id="table_+2">
-                <h3>Schedule a appointment</h3> 
-                <p>NOT FINISH</p>
-                <div id="table_add_1_appointment">
-                  <button class="btn btn-outline-warning" 
-                  onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_appointment.php', 'table_add_1_appointment')"
-              >
-                1. See all appointment </button>
-              </div><br/>
+            <div id="item-4" class="pt-5"> 
+                <h3>Schedule a appointment</h3>  
+                <div id="table_22">
+                    <button class="btn btn-outline-primary" 
+                        onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_clinic.php', 'table_22')"
+                    > 1. See all clinic </button>
+                </div><br/>
+                <div id="table_222">
+                    <div class="input-group  mb-3">
+                        <div class="input-group-prepend"> <span class="input-group-text" > 2. Select clinic</span> </div>
+                        <input  type="text" class="form-control" id="ipt_table_22_1"/>
+                    </div>
+                    <button class="btn btn-outline-primary" id="btn_table_22"> 3. See all doctor in this clinic </button>
+                    <script>
+                        document.getElementById("btn_table_22").onclick = function () {
+                        var url = "http://localhost/comp353_main_project/api/post/read_clinic_dentists.php?" +
+                            "Cname=" + document.getElementById("ipt_table_22_1").value;
+                            call_api("GET", url, "table_222");
+                        };
+                    </script>
+                </div><br/>
+
+
                 <div class="input-group  mb-3">
-                    <div class="input-group-prepend"> <span class="input-group-text" >Did</span> </div>
-                    <input  type="text" class="form-control" id="ipt_table_+1_1"/>
-                </div>
-                <div class="input-group  mb-3">
-                    <div class="input-group-prepend"> <span class="input-group-text" >Sin</span> </div>
-                    <input  type="text" class="form-control" id="ipt_table_+1_2"/>
+                    <div class="input-group-prepend"> <span class="input-group-text" >5. Choose your dentist (Did)</span> </div>
+                    <input  type="text" class="form-control" id="ipt_table_222_1" maxlength="9"/>
                 </div> 
                 <div class="input-group  mb-3">
-                  <div class="input-group-prepend"> <span class="input-group-text" >date</span> </div>
-                  <input  type="date" class="form-control" id="ipt_table_+1_3"/>
-              </div> 
-                <button id="btn_table_+2" class="btn btn-primary"> > </button>
-                <script>
-                    document.getElementById("btn_table_+2").onclick = function () {
-                    var url = "https://xvc353.encs.concordia.ca/api/post/add_appointment.php?" +
-                        "Did=" + document.getElementById("ipt_table_+1_1").value +
-                        "&Sin=" + document.getElementById("ipt_table_+1_2").value +
-                        "&date=" + document.getElementById("ipt_table_+1_3").value;
-                        call_api("GET", url, "table_+2");
-                    };
-                </script>
+                    <div class="input-group-prepend"> <span class="input-group-text" >6. Your SIN number</span> </div>
+                    <input  type="text" class="form-control" id="ipt_table_222_2" maxlength="9"/>
+                </div> 
+                <div class="input-group  mb-3">
+                  <div class="input-group-prepend"> <span class="input-group-text" >7. Pick a date</span> </div>
+                  <input  type="date" class="form-control" id="ipt_table_222_3"/>
+                </div> 
+                <div id="table_333">
+                    <button id="btn_table_+2" class="btn btn-primary"> Make my appointment </button>
+                    <script>
+                        document.getElementById("btn_table_+2").onclick = function () {
+                        var url = "http://localhost/comp353_main_project/api/post/add_appointment.php?" +
+                            "Did=" + document.getElementById("ipt_table_222_1").value +
+                            "&Sin=" + document.getElementById("ipt_table_222_2").value +
+                            "&date=" + document.getElementById("ipt_table_222_3").value;
+                            call_api("GET", url, "table_333");
+                        };
+                    </script> 
                 </div>
             </div>
 <!-- 33 Modify an appointment -->
@@ -335,7 +350,7 @@
                 <!-- See all appointment -->
                 <div id="table_33_appointment">
                     <button class="btn btn-outline-warning" 
-                    onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_appointment.php', 'table_33_appointment')"
+                    onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_33_appointment')"
                 >
                   1. See all appointment </button>
                 </div><br/>
@@ -349,7 +364,7 @@
                 </div><br/>
                 <script>
                     document.getElementById("btn_table_333").onclick = function () {
-                    var url = "https://xvc353.encs.concordia.ca/api/post/read_single_appointment.php?" +
+                    var url = "http://localhost/comp353_main_project/api/post/read_single_appointment.php?" +
                         "Aid=" + document.getElementById("ipt_table_33_1").value;
                     call_api_Aid_to_input("GET", url,"table_333_appointment");
                     };
@@ -363,7 +378,7 @@
                     </div> 
                     <div class="input-group  mb-3">
                         <div class="input-group-prepend"> <span class="input-group-text" >Sin</span> </div>
-                        <input  type="text" class="form-control" id="ipt_table_33_3"/>
+                        <input  type="text" class="form-control" id="ipt_table_33_3" maxlength="9"/>
                     </div> 
                     <div class="input-group  mb-3">
                         <div class="input-group-prepend"> <span class="input-group-text" >Did</span> </div>
@@ -388,7 +403,7 @@
                     <button id="btn_table_3333" class="btn btn-warning"> 5. Make the change </button>
                     <script>
                         document.getElementById("btn_table_3333").onclick = function () {
-                        var url = "https://xvc353.encs.concordia.ca/api/post/modify_appointment.php?" +
+                        var url = "http://localhost/comp353_main_project/api/post/modify_appointment.php?" +
                             "Aid=" + document.getElementById("ipt_table_33_2").value +
                             "&Sin=" + document.getElementById("ipt_table_33_3").value +
                             "&Did=" + document.getElementById("ipt_table_33_4").value +
@@ -410,7 +425,7 @@
                  <!-- See all appointment -->
                  <div id="table_44_appointment">
                     <button class="btn btn btn-outline-danger" 
-                    onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_appointment.php', 'table_44_appointment')"
+                    onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_44_appointment')"
                 >
                   1. See all appointment </button>
                 </div><br/>
@@ -423,7 +438,7 @@
                 <button id="btn_table_44" class="btn btn-danger"> 3. Delete this appointment </button>
                 <script>
                     document.getElementById("btn_table_44").onclick = function () {
-                    var url = "https://xvc353.encs.concordia.ca/api/post/delete_appointment.php?" +
+                    var url = "http://localhost/comp353_main_project/api/post/delete_appointment.php?" +
                         "Aid=" + document.getElementById("ipt_table_44_1").value;
                     call_api("GET", url, "table_4444_appointment");
                     };
@@ -434,11 +449,10 @@
 
 
 
- <!-- 44 user query -->
+ <!-- 55 user query -->
           <div id="item-7" class="pt-5">
                 <div id="table_query">
-                <h3>User query</h3> 
-                <p>NOT FINISH</p>
+                <h3>User query</h3>  
                 <div class="input-group  mb-3">
                     <div class="input-group-prepend"> <span class="input-group-text" >query</span> </div>
                     <textarea  class="form-control" id="ipt_table_query"></textarea>
@@ -447,17 +461,14 @@
                 <button id="btn_table_query" class="btn btn-primary"> > </button>
                 <script>
                     document.getElementById("btn_table_query").onclick = function () {
-                    var url = "https://xvc353.encs.concordia.ca/api/post/user_query.php?" +
+                    var url = "http://localhost/comp353_main_project/api/post/user_query.php?" +
                         "query=" + document.getElementById("ipt_table_query").value;
                         call_api("GET", url, "table_query");
                     };
                 </script>
                 </div>
             </div>
-
-
-
-          
+ 
 
           <div class="SELECT_ALL_SECTION">
             <!-- appointment -->
@@ -467,7 +478,7 @@
                 <h3>select * from appointment</h3>
                 <button
                   class="btn btn-primary"
-                  onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_appointment.php', 'table_appointment')"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_appointment.php', 'table_appointment')"
                 >
                   See all appointment
                 </button>
@@ -479,7 +490,7 @@
                 <h3>select * from belongs</h3>
                 <button
                   class="btn btn-primary"
-                  onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_belongs.php', 'table_belongs')"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_belongs.php', 'table_belongs')"
                 >
                   See all belongs
                 </button>
@@ -491,7 +502,7 @@
                 <h3>select * from bill</h3>
                 <button
                   class="btn btn-primary"
-                  onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_bill.php', 'table_bill')"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_bill.php', 'table_bill')"
                 >
                   See all bill
                 </button>
@@ -503,7 +514,7 @@
                 <h3>select * from clinic</h3>
                 <button
                   class="btn btn-primary"
-                  onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_clinic.php', 'table_clinic')"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_clinic.php', 'table_clinic')"
                 >
                   See all clinic
                 </button>
@@ -515,7 +526,7 @@
                 <h3>select * from dental_assistant</h3>
                 <button
                   class="btn btn-primary"
-                  onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_dental_assistant.php', 'table_dental_assistant')"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_dental_assistant.php', 'table_dental_assistant')"
                 >
                   See all dental_assistant
                 </button>
@@ -527,7 +538,7 @@
                 <h3>select * from dentist</h3>
                 <button
                   class="btn btn-primary"
-                  onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_dentist.php', 'table_dentist')"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_dentist.php', 'table_dentist')"
                 >
                   See all dentist
                 </button>
@@ -539,7 +550,7 @@
                 <h3>select * from include</h3>
                 <button
                   class="btn btn-primary"
-                  onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_include.php', 'table_include')"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_include.php', 'table_include')"
                 >
                   See all include
                 </button>
@@ -551,7 +562,7 @@
                 <h3>select * from patient</h3>
                 <button
                   class="btn btn-primary"
-                  onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_patient.php', 'table_patient')"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_patient.php', 'table_patient')"
                 >
                   See all patient
                 </button>
@@ -563,7 +574,7 @@
                 <h3>select * from receptionist</h3>
                 <button
                   class="btn btn-primary"
-                  onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_receptionist.php', 'table_receptionist')"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_receptionist.php', 'table_receptionist')"
                 >
                   See all receptionist
                 </button>
@@ -576,7 +587,7 @@
                 <h3>select * from treatment</h3>
                 <button
                   class="btn btn-primary"
-                  onclick="call_api('GET','https://xvc353.encs.concordia.ca/api/post/read_treatment.php', 'table_treatment')"
+                  onclick="call_api('GET','http://localhost/comp353_main_project/api/post/read_treatment.php', 'table_treatment')"
                 >
                   See all treatment
                 </button>

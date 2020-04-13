@@ -1,10 +1,16 @@
 <?php 
   class Database {
     // DB Params
-    private $host = 'xvc353.encs.concordia.ca';
-    private $db_name = 'xvc353_4';
-    private $username = 'xvc353_4';
-    private $password = 'Comp3534';
+    // private $host = 'xvc353.encs.concordia.ca';
+    // private $db_name = 'xvc353_4';
+    // private $username = 'xvc353_4';
+    // private $password = 'Comp3534';
+    // private $conn;
+
+    private $host = 'localhost';
+    private $db_name = 'comp353';
+    private $username = 'root';
+    private $password = '';
     private $conn;
 
     // DB Connect
