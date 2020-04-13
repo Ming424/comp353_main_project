@@ -25,6 +25,7 @@
         public $DAid;
 
         public $user_query;
+        public $sum;
 
         // Constructor with DB
         public function __construct($db){
@@ -128,7 +129,7 @@
         }
 
         public function read_6($Aid){
-            $query = 'SELECT appointment.Bid, treatment.Tname, treatment.fee, treatment.excutor 
+            $query = 'SELECT appointment.Bid, treatment.Tname, treatment.fee
             from appointment, include, treatment
             where Aid = \'' . $Aid . '\' AND 
                     appointment.Bid = include.Bid AND 
@@ -341,6 +342,16 @@
             $query =  'SELECT dentist.Did, dentist.Dname, Cname from dentist, belongs
             WHERE belongs.Cname = \'' . $Cname . '\'
             AND belongs.Did = dentist.Did';
+            $stmt = $this->conn->prepare($query); 
+            $stmt->execute();   
+            return $stmt;
+        }
+
+        public function read_clinic_null_dentist($Cname){
+            $query =  'SELECT dentist.Did from dentist, belongs
+            WHERE belongs.Cname = \'' . $Cname . '\'
+            AND belongs.Did = dentist.Did
+            LIMIT 1';
             $stmt = $this->conn->prepare($query); 
             $stmt->execute();   
             return $stmt;

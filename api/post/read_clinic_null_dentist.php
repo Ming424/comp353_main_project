@@ -1,13 +1,4 @@
-<?php  
- 
-function debug_to_console($data){
-    $output = $data;
-    if (is_array($output))  $output = implode(',', $output);
-    echo "\n================PHP===============\n";
-    echo "PHP => " . $output  . "\n";
-    echo "^^^^^^^^^^^^^^^^PHP^^^^^^^^^^^^^^^\n\n";
-}
-
+<?php   
 
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json; charset=UTF-8');
@@ -19,10 +10,10 @@ function debug_to_console($data){
 
   $post = new Post($db); 
 
-  $post->Aid = isset($_GET['Aid']) ? $_GET['Aid'] : die();   
+  $post->Cname = isset($_GET['Cname']) ? $_GET['Cname'] : die();   
   
 
-  $result = $post->read_6($post->Aid);  
+  $result = $post->read_clinic_null_dentist($post->Cname); 
 
   $num = $result->rowCount();
  
@@ -33,10 +24,7 @@ function debug_to_console($data){
       extract($row);
 
       $post_item = array(
-        'Bid' => $Bid,
-        'Tname' => $Tname,
-        'fee' => $fee
-        // 'sum' => $sum
+        'Did' => $Did
       );
  
       array_push($posts_arr, $post_item); 
@@ -46,7 +34,7 @@ function debug_to_console($data){
 
   } else { 
     echo json_encode(
-      array('error' => 'No Posts Found read_6.php')
+      array('error' => 'No Posts Found read_2.php')
     );
   }
 
